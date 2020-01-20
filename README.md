@@ -1,2 +1,2 @@
 # Mapping-Project
-The project to map hello the school!
+The project to map the school!
