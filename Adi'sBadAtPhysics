@@ -1,0 +1,231 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Question_1
+{
+    class Program
+    {
+        static void Main()
+        {
+            string[] input = Console.ReadLine().Split(' ');
+            string numeral = input[0].ToUpper();
+            int n;
+            bool success = int.TryParse(input[1], out n);
+
+            LookAndSay(numeral, n, success);
+            
+            Console.WriteLine("C: {0} :/",partC());
+            Console.ReadKey();
+        }
+
+        static int partC()
+        {
+            List<string> allnum = new List<string>();
+            allnum.Add("0");
+            int unique = 0;
+            for (int i = 1; i < 4000; i++)
+            {
+                allnum.Add(LaSRoman(i.ToString(),1));
+            }
+            for (int j = 1; j < allnum.Count(); j++)
+                if (allnum.IndexOf(allnum[j]) == allnum.LastIndexOf(allnum[j]))
+                    unique++;
+
+            return unique;
+        }
+        static void LookAndSay(string numeral, int n, bool success)
+        {
+            
+            if (success)
+            {
+                numeral = LaSRoman(numeral, n);
+
+                int numi = 0;
+                int numv = 0;
+                foreach (char c in numeral)
+                {
+                    if (c == 'I')
+                        numi++;
+                    else if (c == 'V')
+                        numv++;
+                }
+                
+                Console.WriteLine("{0} {1}", numi, numv);
+            }
+            
+        }
+
+        static string LaSRoman(string num, int recursion)
+        {
+            List<string> numout = new List<string>();
+
+            List<char> numeral = new List<char>();
+            
+
+            int length = 1;
+            for (int r = 0; r < recursion; r++)
+            {
+                numeral.Clear();
+                foreach (char c in num)
+                    numeral.Add(c);
+                for (int i = 0; i < numeral.Count(); i++)
+                {
+                    bool repeat = true;
+                    while (repeat)
+                        if (i + length < numeral.Count())
+                        {
+                            if (numeral[i] == numeral[i + length])
+                                length++;
+                            else
+                                repeat = false;
+                        }
+                        else
+                            repeat = false;
+    
+                    
+                    numout.Add(intToNumeral(length));
+                    numout.Add(numeral[i].ToString());
+                    i += length - 1;
+                    length = 1;
+                }
+                num = string.Join("", numout);
+                numout.Clear();
+
+            }
+            
+            return num;
+        }
+
+        static string intToNumeral(int i)
+        {
+            List<char> numeral = new List<char>();
+            while (i / 1000 > 0)
+            {
+                numeral.Add('M');
+                i -= 1000;
+            }
+
+            while (i / 500 > 0)
+            {
+                numeral.Add('D');
+                i -= 500;
+            }
+
+            while (i / 100 > 0)
+            {
+                numeral.Add('C');
+                i -= 100;
+            }
+
+            while (i / 50 > 0)
+            {
+                numeral.Add('L');
+                i -= 50;
+            }
+
+            while (i / 10 > 0)
+            {
+                numeral.Add('X');
+                i -= 10;
+            }
+
+            while (i / 5 > 0)
+            {
+                numeral.Add('V');
+                i -= 5;
+            }
+
+            while (i / 1 > 0)
+            {
+                numeral.Add('I');
+                i -= 1;
+            }
+
+            for (int j = 0; j <= numeral.Count() - 4; j++)
+                if (numeral[j] == numeral[j + 1] && numeral[j] == numeral[j + 2] && numeral[j] == numeral[j + 3])
+                {
+                    if (numeral[j] == 'I')
+                        if (j != 0)
+                        {
+                            if (numeral[j - 1] == 'V')
+                            {
+                                numeral.RemoveAt(j + 2);
+                                numeral.RemoveAt(j + 2);                                
+                                numeral[j + 1] = 'X';
+                                numeral.RemoveAt(j - 1);
+                                j--;
+                            }
+                            else
+                            {
+                                numeral.RemoveAt(j + 2);
+                                numeral.RemoveAt(j + 2);
+                                numeral[j + 1] = 'V';
+                            }
+                        }
+                        else
+                        {
+                            numeral.RemoveAt(j + 2);
+                            numeral.RemoveAt(j + 2);
+                            numeral[j + 1] = 'V';
+                        }
+
+                    if (numeral[j] == 'X')
+                        if (j != 0)
+                        {
+                            if (numeral[j - 1] == 'L')
+                            {
+                                numeral.RemoveAt(j + 2);
+                                numeral.RemoveAt(j + 2);
+                                numeral[j + 1] = 'C';
+                                numeral.RemoveAt(j - 1);
+                                j--;
+                            }
+                            else
+                            {
+                                numeral.RemoveAt(j + 2);
+                                numeral.RemoveAt(j + 2);
+                                numeral[j + 1] = 'L';
+                            }
+                        }
+                        else
+                        {
+                            numeral.RemoveAt(j + 2);
+                            numeral.RemoveAt(j + 2);
+                            numeral[j + 1] = 'l';
+                        }
+
+                    if (numeral[j] == 'C')
+                        if (j != 0)
+                        {
+                            if (numeral[j - 1] == 'D')
+                            {
+                                numeral.RemoveAt(j + 2);
+                                numeral.RemoveAt(j + 2);
+                                numeral[j + 1] = 'M';
+                                numeral.RemoveAt(j - 1);
+                                j--;
+                            }
+                            else
+                            {
+                                numeral.RemoveAt(j + 2);
+                                numeral.RemoveAt(j + 2);
+                                numeral[j + 1] = 'D';
+                            }
+                        }
+                        else
+                        {
+                            numeral.RemoveAt(j + 2);
+                            numeral.RemoveAt(j + 2);
+                            numeral[j + 1] = 'D';
+                        }
+                }
+
+
+            return string.Join("",numeral);
+        }
+
+    }
+}
