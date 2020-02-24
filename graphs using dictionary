@@ -1,0 +1,32 @@
+thisdict = {
+    }
+    
+thisdict[1]=[[2,6],[3,7]]#first number = room number. second = distance of connection
+thisdict[2]=[[1,6]]
+thisdict[3]=[[1,7]]
+print(thisdict)
+
+def findifconnect(room1,room2):
+    x = thisdict[room1]
+    for i in range(len(x)):
+        if x[i][0] == room2:
+            return True
+    return False
+
+def finddist(room1,room2):
+    x = thisdict[room1]
+    for i in range(len(x)):
+        if x[i][0] == room2:
+            return x[i][1]
+def addconnection(room1,room2,dist):
+    thisdict[room1].append([room1,dist])
+    thisdict[room2].append([room2,dist])
+
+def updatedist(room1,room2,dist):
+    for i in range(len(thisdict[room1])):
+        if thisdict[room1][i][0] == room2:
+            thisdict[room1][i] = [room2,dist]
+            break
+    for i in range(len(thisdict[room2])):
+        if thisdict[room2][i][0] == room1:
+            thisdict[room2][i] = [room1,dist]
