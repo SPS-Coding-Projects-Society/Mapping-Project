@@ -1,8 +1,8 @@
-#Get API key by signing up to this site: https://home.openweathermap.org/ and then going to API keys, copying the API key and putting it into the file called key
+#Get API key by signing up to this site: https://home.openweathermap.org/ and then going to API keys, copying the API key and putting it into a file called key.txt (in the same directory as this script)
 
 import pyowm  # pip install pyowm
 
-key = open('key.txt','r').read().rstrip() #read file containing API key: file called key
+key = open('key.txt','r').read().rstrip() #read file containing API key: file called key which must be created
 owm = pyowm.OWM(key) #set API key
 
 observation = owm.weather_at_place('London,UK') #set weather observation in london
