@@ -2,7 +2,7 @@
 
 import pyowm  # pip install pyowm
 
-key = open('key.txt','r').read().rstrip() #read file containing API key: file called key which must be created
+key = open('key.txt','r').read().rstrip() #read file containing API key: file called key.txt
 owm = pyowm.OWM(key) #set API key
 
 observation = owm.weather_at_place('London,UK') #set weather observation in london
