@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mapping_project/saved_locs.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blueGrey,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      //home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: SavedLocs(items: ["Room 101", "Room B6", "Room P5", "Computer Gallery"]),
     );
   }
 }
