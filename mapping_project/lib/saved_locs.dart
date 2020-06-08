@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp(
-    items: List<String>.generate(1000, (i) => "Item $i"),
+    items: ["Room 101", "Room B6", "Room P5", "Computer Gallery"], //REPLACE THIS WITH THE LIST OF LOCATIONS
   ));
 }
 
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final title = 'Long List';
+    final title = 'Saved Locations';
 
     return MaterialApp(
       title: title,
