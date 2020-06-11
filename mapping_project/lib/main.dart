@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
       ),
       //home: MyHomePage(title: 'Flutter Demo Home Page'),
-      home: SavedLocs(items: ["Room 101", "Room B6", "Room P5", "Computer Gallery"]),
+      home: SavedLocs(["Room 101", "Room B6", "Room P5", "Computer Gallery"]),
     );
   }
 }
