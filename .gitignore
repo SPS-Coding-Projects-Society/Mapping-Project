@@ -1,0 +1,9 @@
+mapping_project/pubspec.lock
+
+mapping_project/.vscode/launch.json
+mapping_project/android/.project
+mapping_project/android/.settings/org.eclipse.buildship.core.prefs
+mapping_project/android/app/.classpath
+mapping_project/android/app/.project
+mapping_project/android/app/.settings/org.eclipse.buildship.core.prefs
+mapping_project/pubspec.lock
