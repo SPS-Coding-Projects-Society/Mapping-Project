@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sps_map/lessons_page.dart';
+import 'package:mapping_project/lessons_page.dart';
 
 void main() => runApp(MyApp(Brightness.light));
 

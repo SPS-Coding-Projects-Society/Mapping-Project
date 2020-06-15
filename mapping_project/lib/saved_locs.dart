@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mapping_project/customAppBar.dart';
 
 //All it needs for input is a List<string>, 
 //function returnList() returns updatedlist upon execution
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blueGrey,
+        primarySwatch: Colors.pink,
       ),
       //home: MyHomePage(title: 'Flutter Demo Home Page'),
       home: SavedLocs(["Room 101", "Room B6", "Room P5", "Computer Gallery"]),
@@ -57,8 +58,10 @@ _SavedLocsState(this.userLocs);
   @override
   Widget build(BuildContext context) {
 return Scaffold(
+  appBar: CustomAppBar.create("Saved Locations")
+  ,
   body: Padding(
-    padding: const EdgeInsets.all(8.0),
+    padding: const EdgeInsets.all(8.0),    
     child: ListView.separated(
         itemCount: userLocs.length,
         itemBuilder: (context, index) {
