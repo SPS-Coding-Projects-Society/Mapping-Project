@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sps_map/main.dart';
 import 'lesson.dart';
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
+import 'custom_app_bar.dart';
 
 class LessonsPage extends StatefulWidget {
   @override
@@ -55,16 +55,7 @@ class LessonsPageState extends State<LessonsPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Upcoming Lessons"),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.swap_horiz),
-              onPressed: () {
-                return MyApp(Brightness.dark);
-              })
-        ],
-      ),
+      appBar: CustomAppBar.create("Upcoming Lessons"),
       body: FutureBuilder(
           future: loadLessons(),
           builder: (context, snapshot) {
