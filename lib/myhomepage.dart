@@ -18,11 +18,11 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   
   int floor = 0;
 
-  AnimationController _animationController;
+  AnimationController _animationController; // Controller of animation of buttons
   GlobalKey<AutoCompleteTextFieldState<String>> key = new GlobalKey();
 
-  List<String> suggestions = ["Saved", "Saved","Saved","Saved","Saved"];
-  PhotoViewController controller;
+  List<String> suggestions = ["Saved", "Saved","Saved","Saved","Saved"]; // List of saved places
+  PhotoViewController controller; // Controller of map view
   double scaleCopy = 2.5;
 
   @override
@@ -30,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1500),
+      duration: const Duration(milliseconds: 1500), // Duration of button animation
     );
     controller = PhotoViewController()
       ..outputStateStream.listen(listener);
@@ -50,6 +50,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   }
 
   String select(double scale, int index){
+    // Selecting map image file by floor
     if (scale < 3.0){
       floor = 0;
       return maps[0];
@@ -65,9 +66,10 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
       body: Stack(
         children: <Widget>[
           Positioned(
+            // Map viewer
             child: PhotoView.customChild(
-              initialScale: 2.5,
-              minScale: 1.0,
+              initialScale: 2.5, // Initial scale of enlargement
+              minScale: 1.0, // Lower boundary of scale of enlargement
               controller: controller,
               backgroundDecoration: BoxDecoration(
                 color: Colors.white,),
@@ -78,6 +80,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
               )
           ),
           Positioned(
+            // Floating search bar
             top: 30,
             right: 15,
             left: 15,
@@ -107,6 +110,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
             ),
           ),
           PositionedTransition(
+            // Floating button for tannoy notice
             rect: _animationController
                 .drive(
                   CurveTween(
@@ -131,6 +135,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
             ),
           ),
           PositionedTransition(
+            // Floating button for saved rooms
             rect: _animationController
                 .drive(
                   CurveTween(
@@ -155,6 +160,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
             ),
           ),
           PositionedTransition(
+            // Floating button for setting
             rect: _animationController
                 .drive(
                   CurveTween(
@@ -179,6 +185,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
             ),
           ),
           Positioned(
+            // Floating button to show other buttons
             bottom: 110,
             right: 15,
             child:FloatingActionButton(
@@ -199,6 +206,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
             ),
           ),
           Positioned(
+            // Floating button for navigation
             bottom: 110,
             left: 15,
             child:FloatingActionButton(
@@ -214,6 +222,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
           ),
           if (scaleCopy > 3.0)
             Positioned(
+              // Picker to choose floor (It will show up when zoomed)
               top: 100,
               left: 15,
               child: Container(
@@ -238,6 +247,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
               ),
             ),
           Positioned(
+            // Sliding up pannel for time table
             child: SlidingUpPanel(
               panel: Center(
                 child: Text("Time table"),
