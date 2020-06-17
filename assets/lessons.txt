@@ -1,6 +1,0 @@
-science, X101, Mr. Smith, 9:00
-maths, P2, Miss. Lee, 9:40
-art, 203, Dr. Dolittle, 10:40
-games, R90, Prof. Bailey, 11:20
-french, S5, Mrs. Jimminy, 12:00
-computing, 001, JoJoRo, 2:20r
