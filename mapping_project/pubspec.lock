@@ -14,7 +14,15 @@ packages:
       name: args
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
+    version: "1.6.0"
+<<<<<<< HEAD
+
+=======
     version: "1.5.2"
+>>>>>>> parent of 7d23c33... Merge pull request #32 from Kepler45/UI
+=======
+>>>>>>> parent of e4b1bfa... Merge branch 'master' into UI
   async:
     dependency: transitive
     description:
