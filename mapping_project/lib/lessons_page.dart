@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sps_map/main.dart';
 import 'lesson.dart';
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
+import 'custom_app_bar.dart';
 
 class LessonsPage extends StatefulWidget {
   @override
@@ -67,23 +67,12 @@ class LessonsPageState extends State<LessonsPage> {
   //builds the page
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        //sets the title
-        title: Text("Upcoming Lessons"),
-        actions: <Widget>[
-          IconButton(
-            //adds an icon at the top right of the app bar
-              icon: Icon(Icons.swap_horiz),
-              onPressed: () {
-                return MyApp(Brightness.dark);
-              })
-        ],
-      ),
+      appBar: CustomAppBar.create("Lessons Page"),
       //builds the lessons list, using data from a text file
       body: FutureBuilder(
-        //loads the lessons
+          //loads the lessons
           future: loadLessons(),
-        //returns the list once the file is loaded, or a progress indicator otherwise
+          //returns the list once the file is loaded, or a progress indicator otherwise
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               return _buildLessonsList(snapshot.data);
