@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
+import 'custom_app_bar.dart';
 
 void main() => runApp(MyApp());
 
@@ -105,9 +106,7 @@ class SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     return Scaffold(
       //scaffold just arranges the options nicely
-      appBar: AppBar(
-        title: Text('Settings'),
-      ),
+      appBar: CustomAppBar.create("Settings Page"),
       body: _buildOptions(),
     );
   }
