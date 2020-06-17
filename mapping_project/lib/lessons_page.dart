@@ -21,31 +21,21 @@ class LessonsPageState extends State<LessonsPage> {
   //creates a list of lesson objects
   Widget _buildLessonsList(List<String> lines) {
     var lessons = <Lesson>[];
-    try {
-      lines.forEach((line) {
-        //prints out lesson details for debugging
-        print(line);
-        print("NEW LINE");
-        lessons.add(Lesson.fromString(line));
-      });
-
-      //creates a list view of the lessons
-      return ListView.builder(
-        itemCount: (lessons.length * 2),
-        padding: const EdgeInsets.all(16.0),
-        itemBuilder: (context, item) {
-          //returns a divider if odd, or lesson details if even
-          if (item.isOdd) return Divider();
-          final index = item ~/ 2;
-
-          //creates a list tile for the lesson
-          return _buildLessonRow(lessons[index]);
-        },
-      );
-    } catch (e) {
-      //catches error text
-      return Text(e.toString());
-    }
+    lines.forEach((line) {
+      lessons.add(Lesson.fromString(line));
+    });
+    //creates a list view of the lessons
+    return ListView.builder(
+      itemCount: (lessons.length * 2),
+      padding: const EdgeInsets.all(16.0),
+      itemBuilder: (context, item) {
+        //returns a divider if odd, or lesson details if even
+        if (item.isOdd) return Divider();
+        final index = item ~/ 2;
+        //creates a list tile for the lesson
+        return _buildLessonRow(lessons[index]);
+      },
+    );
   }
 
   //builds the list tile for the lesson
@@ -67,7 +57,7 @@ class LessonsPageState extends State<LessonsPage> {
   //builds the page
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar.create("Lessons Page"),
+      appBar: CustomAppBar.create(context, "Lessons Page"),
       //builds the lessons list, using data from a text file
       body: FutureBuilder(
           //loads the lessons
