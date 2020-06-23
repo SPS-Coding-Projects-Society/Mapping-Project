@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'directionsListPage.dart';
 import 'directionsPage.dart';
 import 'directionsSummaryPage.dart';
-import 'directionsPage.dart';
-import 'directionsListPage.dart';
 import 'lessons_page.dart';
 import 'myhomepage.dart';
 import 'settings_page.dart';
