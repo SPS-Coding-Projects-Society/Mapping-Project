@@ -8,7 +8,7 @@ import 'tannoy.dart';
 class CustomAppBar {
   static void _pushSettingsPage(BuildContext context) {
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (BuildContext context) => MyApp()),
+      MaterialPageRoute(builder: (BuildContext context) => Settings()),
     );
   }
 
