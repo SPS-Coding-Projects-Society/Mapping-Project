@@ -15,10 +15,7 @@ class DirectionsViewState extends State<DirectionsView> {
   final List<IconData> icons = getIcons(); // list of icons
 
   static void _pushDirectionsList(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-          builder: (BuildContext context) => DirectionsListView()),
-    );
+    Navigator.of(context).pushNamed('/directionsList');
   }
 
   @override

@@ -1,39 +1,24 @@
 import 'package:flutter/material.dart';
-import 'settings_page.dart';
-import 'lessons_page.dart';
-import 'directionsSummaryPage.dart';
-import 'myhomepage.dart';
-import 'tannoy.dart';
 
 class CustomAppBar {
   static void _pushSettingsPage(BuildContext context) {
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (BuildContext context) => Settings()),
-    );
+    Navigator.of(context).pushReplacementNamed('/settings');
   }
 
   static void _pushLessonsPage(BuildContext context) {
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (BuildContext context) => LessonsPage()),
-    );
+    Navigator.of(context).pushReplacementNamed('/lessons');
   }
 
   static void _pushDirectionsPage(BuildContext context) {
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (BuildContext context) => SummaryView()),
-    );
+    Navigator.of(context).pushReplacementNamed('/directionsSummary');
   }
 
   static void _pushHomePage(BuildContext context) {
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (BuildContext context) => MyHomePage()),
-    );
+    Navigator.of(context).pushReplacementNamed('/');
   }
 
   static void _pushTannoyPage(BuildContext context) {
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (BuildContext context) => Tannoy()),
-    );
+    Navigator.of(context).pushReplacementNamed('tannoy');
   }
 
   static AppBar create(BuildContext context, String title) {
