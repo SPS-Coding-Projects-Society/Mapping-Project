@@ -7,31 +7,31 @@ import 'tannoy.dart';
 
 class CustomAppBar {
   static void _pushSettingsPage(BuildContext context) {
-    Navigator.of(context).push(
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (BuildContext context) => MyApp()),
     );
   }
 
   static void _pushLessonsPage(BuildContext context) {
-    Navigator.of(context).push(
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (BuildContext context) => LessonsPage()),
     );
   }
 
   static void _pushDirectionsPage(BuildContext context) {
-    Navigator.of(context).push(
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (BuildContext context) => SummaryView()),
     );
   }
 
   static void _pushHomePage(BuildContext context) {
-    Navigator.of(context).push(
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (BuildContext context) => MyHomePage()),
     );
   }
 
   static void _pushTannoyPage(BuildContext context) {
-    Navigator.of(context).push(
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (BuildContext context) => Tannoy()),
     );
   }
