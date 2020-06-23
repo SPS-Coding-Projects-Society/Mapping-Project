@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
+import 'directionsListPage.dart';
+import 'directionsPage.dart';
+import 'directionsSummaryPage.dart';
+import 'directionsPage.dart';
+import 'directionsListPage.dart';
+import 'lessons_page.dart';
 import 'myhomepage.dart';
+import 'settings_page.dart';
+import 'tannoy.dart';
 
 void main() => runApp(MyApp(Brightness.light));
 
@@ -16,7 +24,18 @@ class MyApp extends StatelessWidget {
       theme:
           ThemeData(primaryColor: Colors.purple[900], brightness: brightness),
       darkTheme: ThemeData.dark(),
-      home: MyHomePage(),
+
+      initialRoute: '/',
+      routes: <String, WidgetBuilder>{
+        '/': (BuildContext context) => new MyHomePage(),
+        '/settings': (BuildContext context) => new Settings(),
+        '/lessons': (BuildContext context) => new LessonsPage(),
+        '/directionsSummary': (BuildContext context) => new SummaryView(),
+        '/directionsList': (BuildContext context) => new DirectionsListView(),
+        '/directions': (BuildContext context) => new DirectionsView(),
+        '/homepage': (BuildContext context) => new MyHomePage(),
+        '/tannoy': (BuildContext context) => new Tannoy(),
+      },
     );
   }
 }
