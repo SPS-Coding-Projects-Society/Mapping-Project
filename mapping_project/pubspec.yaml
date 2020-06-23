@@ -18,6 +18,10 @@ environment:
 
 dependencies:
   dynamic_theme: ^1.0.1
+  photo_view:
+  flutter_svg:
+  autocomplete_textfield:
+  sliding_up_panel:
   flutter:
     sdk: flutter
 

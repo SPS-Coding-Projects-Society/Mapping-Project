@@ -1,0 +1,39 @@
+<svg id="Top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1923.02 1081.75">
+  <title>SPSMAP-Top</title>
+  <path d="M161.83,154.83l-5.5-12.5L178.5,131l17.33,40.33L212,169V106.67l91.67.83L303,151.33h17.67l31.66-42,22.67-20,18.38-9.58,197.5-.25V56h22.87L623,46.33l65.88-.25.12-7.41h18l.06,5.66h6.27V38.67H788V44h6V38.67h11.33l.34,6.33h9.83V0H0V234.5l38.5-19.17s-35.5,17.17-36,18" transform="translate(1 1)" fill="#8eca4d"/>
+  <polyline points="1256.66 119.67 1256.66 136 1275 136 1275 119.67" fill="#8eca4d" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <path d="M561.14,180.11h711.11V725.79H847.56L576,783.81s-24.69,9.88-27.16,13.59-23.46,19.75-23.46,19.75L511.75,836.9l-22.22,7.41-24.69-56.79V769L395.7,608.51l-14.81-9.88L331.51,483.81l7.4-13.58-44.44-91.35-14.82-3.71-14.81-30.86,92.59,11.11,8.64,11.11L411.75,448l14.82,2.47,79-28.39,3.09.08L508,405.5,415,437,356.5,321,348,303.5,338,266l-1-63.5,12-53L362,128l14-16.5,16.5-10H548l.5,49.5,15-.5V165l-17-.5-.5,17Z" transform="translate(1 1)" fill="none" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <path d="M446,107.5l42,1v19h60.26l.24,23.5,15-.5V165l-17-.5-.5,17,15.14-1.39L563.5,302.5h-19L545,318h18.5v29h-151v-6.5h-32v-22h18l-1-16h-17V183H398V166l-17.5.5V156l17.5-1-1-26.5,50.5.5Z" transform="translate(1 1)" fill="#0071bc" stroke="blue" stroke-miterlimit="10" stroke-width="2"/>
+  <rect x="660.5" y="186.5" width="140.5" height="114.5" fill="#0071bc" stroke="blue" stroke-miterlimit="10" stroke-width="2"/>
+  <polygon points="816.5 186.5 816.5 301 1005.5 301 1005.5 326 1131 326 1131 345.5 1155.5 345.5 1155.5 354.5 1147.5 354.5 1147.5 446 1155.5 446 1155.5 459.5 1255 459.5 1255 345 1258.44 345.25 1258.44 329 1261.5 319.5 1261.5 295.5 1257 286.25 1257 266 1219.75 266 1201 251.5 1200.5 202.75 1185.25 202.5 1176.5 198.25 1158.75 198 1149.25 202.5 1131.25 202.5 1131.5 299.75 1100.25 299.25 1099 186.5 816.5 186.5" fill="#0071bc" stroke="blue" stroke-miterlimit="10" stroke-width="2"/>
+  <polygon points="802 357.25 860 357.25 859.25 590.25 1005.89 591.49 1006 670.25 855.75 670.25 843.25 694.25 812.75 673.75 802 673.25 802 357.25" fill="#0071bc" stroke="blue" stroke-miterlimit="10" stroke-width="2"/>
+  <polygon points="802 327 601.25 327 601 604.5 652.75 604.5 652.75 612.5 645.75 612.5 646 644.5 636.75 644.5 637 670.5 677.25 670.5 678.25 667.5 694 667.75 695.75 670.5 762.25 670.5 763.25 673.5 802 673.25 802 327" fill="#0071bc" stroke="blue" stroke-miterlimit="10" stroke-width="2"/>
+  <path d="M1154.25,503c.13,2.37.25,126.75.25,126.75h98.75V503Z" transform="translate(1 1)" fill="#0071bc" stroke="blue" stroke-miterlimit="10" stroke-width="2"/>
+  <polygon points="739 1080.75 739 869 1921 869 1922.02 1081 739 1080.75" fill="#606060"/>
+  <polygon points="919 27.33 919 79.67 936.67 79.67 936.67 110.33 958.33 119.67 984 126.67 1029.08 126.88 1058.67 121.67 1082.67 111 1082.67 101.5 1103 101.5 1103 27.33 1082.33 27.33 1082.33 5 937 5 937 26.67 919 27.33" fill="#0071bc" stroke="blue" stroke-miterlimit="10" stroke-width="2"/>
+  <polygon points="1011.33 670.17 1006 670.25 1005.5 326 1131 326 1131 345.5 1136.13 345.5 1134.5 669.83 1011.33 670.17" fill="#0071bc" stroke="blue" stroke-miterlimit="10" stroke-width="2"/>
+  <polyline points="739 901 739 901 739 869 1921 869 1922 812.5 1505.56 812 1280.67 810 1280.67 781.33 1275.33 772 852.67 772 581.33 817.33 559.33 833.33 550.67 851.33 550.67 901 739 901 739 959" fill="#8eca4d" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <polygon points="516.5 1080.75 506 992 229 373 215 366 203 366 1 459.5 1 1080.75 516.5 1080.75" fill="#8eca4d" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <polyline points="211.33 176 319.33 176 321.67 167.33 305 167.33 304 152.33 321.67 152.33 332.67 136 353.33 110.33 376 90.33 394.38 80.75 591.88 80.5 591.88 57 614.75 57 614.75 124.88 616.38 137.13" fill="none" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <polygon points="1294.17 120.83 1295.17 143 1298 148.5 1301.17 149.67 1504.5 150.67 1534.06 150.67 1534.06 39.67 1658.56 39.67 1729.05 57 1802.55 95.17 1921 195.92 1921 1 1111 1 1111 5 1307.67 5 1307.67 119.67 1294.17 120.83" fill="#8eca4d" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <polyline points="1921 234.33 1841.55 170 1784.55 123.67 1738.05 94.11 1684.05 73.5 1640.56 65.21 1568.56 66.17 1568.56 167.83 1504.5 167.83 1306.5 167.83 1307.33 787.33 1504.5 787.33 1921 787.33" fill="#8eca4d" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <polyline points="584 1080.75 584 959 739 959 739 1080.75" fill="none" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <polygon points="211.33 250.95 261.33 222 319.33 222 319.33 269.33 328 301 252 327 248 320.47 250 312.67 222.67 262.67 216.67 263.33 211.33 250.95" fill="none" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <path d="M378.69,365h205v64h-74l-1-6.83L508,405.5l.46-40.5" transform="translate(1 1)" fill="none" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <polygon points="349.67 454.33 364.33 516.67 385 511.33 391 536.33 399.33 536.33 412 591.33 482.18 574.33 473.67 536.33 488.67 534.67 471.67 457 413.67 473.9 405.43 435.95 349.67 454.33" fill="#0071bc" stroke="blue" stroke-miterlimit="10" stroke-width="2"/>
+  <path d="M212,106.67V169s91.58,1.25,91.67,0,0-61.5,0-61.5Z" transform="translate(1 1)" fill="#0071bc" stroke="blue" stroke-miterlimit="10" stroke-width="2"/>
+  <path d="M178.5,131l17.33,40.33L176.33,182s6.67,16.67,6.34,17.17S57.5,258.83,57.5,258.83l-19-43.5,123.33-60.5-5.5-12.5Z" transform="translate(1 1)" fill="#0071bc" stroke="blue" stroke-miterlimit="10" stroke-width="2"/>
+  <path d="M0,238.24c1.25,0,32.5-16.07,32.5-16.07l32.83,79.5L5,340l32,49,67-24.5,4-8.25L83,300l4.33-5.33L86,287l12.33-4.67v-6.66L150.67,250c1-.5,10.33,2.67,10.33,2.67L173.67,250" transform="translate(1 1)" fill="none" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <path d="M908,0V56c0,1-69,71.33-69,71.33H827S827.25,2.92,827,0Z" transform="translate(1 1)" fill="#8eca4d" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <polygon points="972 136 972 128.33 953.5 126 932.5 116.5 925 110.5 925 88 909 88 909 69.5 845 136 972 136" fill="#8eca4d" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <polyline points="816.5 1 816.5 136 708.67 136 708.67 104 804 104 804 97" fill="#8eca4d" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <polyline points="614.75 104 693.63 104 693.63 136 616.23 136" fill="#8eca4d" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <polygon points="1044.67 136 1044.67 128.33 1059.33 128.33 1081 120.83 1089.33 116.5 1096.67 106.67 1111 106.67 1111 119.28 1201 119.67 1201 135.75 1044.67 136" fill="#8eca4d" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <line x1="1127.25" y1="118.75" x2="1127.25" y2="135.87" fill="none" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <line x1="1117.5" y1="118.75" x2="1117.5" y2="136" fill="none" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <rect x="1312" y="23.33" width="193.56" height="100.33" fill="#0071bc" stroke="blue" stroke-miterlimit="10" stroke-width="2"/>
+  <polygon points="624 47.33 624 95.67 708.67 95.67 708.67 104 804 104 804 97 816.5 97 816.5 46 806.67 46 806.33 39.67 795 39.67 795 45 789 45 789 39.67 714.33 39.67 714.33 45.33 708.06 45.33 708 39.67 690 39.67 689.88 47.08 624 47.33" fill="#0071bc" stroke="blue" stroke-miterlimit="10" stroke-width="2"/>
+  <polyline points="584 959 550.67 959 550.67 1081" fill="none" stroke="red" stroke-miterlimit="10" stroke-width="2"/>
+  <line x1="1131.5" y1="299.75" x2="1131" y2="326" fill="none" stroke="blue" stroke-miterlimit="10" stroke-width="2"/>
+  <polygon points="1307.67 119.67 1307.67 5 1111 5 1111 119.28 1307.67 119.67" fill="#0071bc" stroke="blue" stroke-miterlimit="10" stroke-width="2"/>
+</svg>
