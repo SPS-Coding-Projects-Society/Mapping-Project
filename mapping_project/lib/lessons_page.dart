@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mapping_project/main.dart';
+import 'package:sps_map/main.dart';
 import 'lesson.dart';
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
