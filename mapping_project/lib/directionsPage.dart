@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'custom_app_bar.dart';
-import 'directionsListPage.dart';
 
 // directions view
 class DirectionsView extends StatefulWidget {

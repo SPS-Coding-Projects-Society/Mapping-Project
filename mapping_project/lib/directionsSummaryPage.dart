@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'custom_app_bar.dart';
-import 'directionsPage.dart';
 
 // directions view
 class SummaryView extends StatefulWidget {
