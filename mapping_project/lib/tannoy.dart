@@ -1,9 +1,9 @@
-import 'dart:ffi';
-import 'dart:io';
+//import 'dart:io';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'custom_app_bar.dart';
 
 class Tannoy extends StatefulWidget {
   @override
@@ -25,6 +25,7 @@ class TannoyState extends State<Tannoy> {
     });
     return questions;
   }
+
   @override
   void initState() {
     _setup();
@@ -42,22 +43,7 @@ class TannoyState extends State<Tannoy> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        //title: Text("Tannoy Notices"),
-        //title: Text("Tannoy"),
-        title: new Padding (child: new Text ("Tannoy Notices"),
-            padding:const EdgeInsets.only(left: 125.0) ),
-        centerTitle: false,
-        //bottom: PreferredSize(
-           // child: Text("Notices"),
-            //preferredSize: null),
-        backgroundColor: Colors.blue,
-        automaticallyImplyLeading: true,
-        leading: IconButton(icon: Icon(Icons.arrow_back_ios),
-          onPressed: () => exit(0),
-          color: Colors.white,
-        ),
-      ),
+      appBar: CustomAppBar.create(context, "Tannoy Notices"),
       body: Center(
         child: Container(
           //color: Colors.green,
@@ -68,14 +54,14 @@ class TannoyState extends State<Tannoy> {
 //              return Text(_notices[index]);
 //            },
 //          ),
-        child: Scrollbar(
-          child: ListView.builder(
-            itemCount: _notices.length,
-            itemBuilder: (context, index){
-              return Text(_notices[index]);
-            },
+          child: Scrollbar(
+            child: ListView.builder(
+              itemCount: _notices.length,
+              itemBuilder: (context, index) {
+                return Text(_notices[index]);
+              },
+            ),
           ),
-        ),
         ),
       ),
     );
