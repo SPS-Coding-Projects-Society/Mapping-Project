@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mapping_project/lessons_page.dart';
+import 'myhomepage.dart';
 
 void main() => runApp(MyApp(Brightness.light));
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme:
           ThemeData(primaryColor: Colors.purple[900], brightness: brightness),
       darkTheme: ThemeData.dark(),
-      home: LessonsPage(),
+      home: MyHomePage(),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'custom_app_bar.dart';
+import 'directionsPage.dart';
 
 // directions view
 class SummaryView extends StatefulWidget {
@@ -8,6 +9,12 @@ class SummaryView extends StatefulWidget {
 }
 
 class SummaryViewState extends State<SummaryView> {
+  static void _pushDirectionsPage(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (BuildContext context) => DirectionsView()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +22,7 @@ class SummaryViewState extends State<SummaryView> {
         body: Stack(
           children: <Widget>[
             Image.asset(
-              'assets/map.png', // TODO:  replace temporary image
+              'assets/images/map.png', // TODO:  replace temporary image
               fit: BoxFit.cover,
               height: double.infinity,
               width: double.infinity,
@@ -60,7 +67,7 @@ class SummaryViewState extends State<SummaryView> {
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10)),
                                   onPressed: () {
-                                    Navigator.of(context).pushNamed('/direct');
+                                    _pushDirectionsPage(context);
                                   },
                                   child: const Text('Start Navigation',
                                       style: TextStyle(fontSize: 18)),

@@ -14,11 +14,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   var maps = [
-    'images/SPSMAP_Top.svg',
-    'images/SPSMAP_3rd.svg',
-    'images/SPSMAP_2nd.svg',
-    'images/SPSMAP_1st.svg',
-    'images/SPSMAP_Ground.svg'
+    'assets/images/SPSMAP_Top.svg',
+    'assets/images/SPSMAP_3rd.svg',
+    'assets/images/SPSMAP_2nd.svg',
+    'assets/images/SPSMAP_1st.svg',
+    'assets/images/SPSMAP_Ground.svg'
   ];
   var _moved = false;
 
@@ -137,6 +137,7 @@ class _MyHomePageState extends State<MyHomePage>
                   ),
                 ),
             child: FloatingActionButton(
+              heroTag: "tannoy",
               backgroundColor: Colors.white,
               child: Icon(Icons.notifications, color: Colors.black),
               onPressed: () {
@@ -161,6 +162,7 @@ class _MyHomePageState extends State<MyHomePage>
                   ),
                 ),
             child: FloatingActionButton(
+              heroTag: "rooms",
               backgroundColor: Colors.white,
               child: Icon(Icons.bookmark, color: Colors.black),
               onPressed: () {
@@ -185,6 +187,7 @@ class _MyHomePageState extends State<MyHomePage>
                   ),
                 ),
             child: FloatingActionButton(
+              heroTag: "settings",
               backgroundColor: Colors.white,
               child: Icon(Icons.settings, color: Colors.black),
               onPressed: () {
@@ -197,6 +200,7 @@ class _MyHomePageState extends State<MyHomePage>
             bottom: 110,
             right: 15,
             child: FloatingActionButton(
+              heroTag: "more",
               backgroundColor: Colors.white,
               child: Icon(Icons.more_vert, color: Colors.black),
               onPressed: () {
@@ -215,6 +219,7 @@ class _MyHomePageState extends State<MyHomePage>
             bottom: 110,
             left: 15,
             child: FloatingActionButton(
+              heroTag: "navigation",
               backgroundColor: Colors.white,
               child: Icon(Icons.location_on, color: Colors.black),
               onPressed: () {
@@ -222,34 +227,32 @@ class _MyHomePageState extends State<MyHomePage>
               },
             ),
           ),
-          scaleCopy > 3.0
-              ? Positioned(
-                  // Picker to choose floor (It will show up when zoomed)
-                  top: 100,
-                  left: 15,
-                  child: Container(
-                      height: 150,
-                      width: 40,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: Colors.grey, width: 1.0),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: CupertinoPicker(
-                        onSelectedItemChanged: (value) {
-                          floor = value;
-                        },
-                        itemExtent: 30.0,
-                        children: <Widget>[
-                          Center(child: Text("T")),
-                          Center(child: Text("3")),
-                          Center(child: Text("2")),
-                          Center(child: Text("1")),
-                          Center(child: Text("G")),
-                        ],
-                      )),
-                )
-              : null,
+          Positioned(
+            // Picker to choose floor (It will show up when zoomed)
+            top: 100,
+            left: 15,
+            child: Container(
+                height: 150,
+                width: 40,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: Colors.grey, width: 1.0),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: CupertinoPicker(
+                  onSelectedItemChanged: (value) {
+                    floor = value;
+                  },
+                  itemExtent: 30.0,
+                  children: <Widget>[
+                    Center(child: Text("T")),
+                    Center(child: Text("3")),
+                    Center(child: Text("2")),
+                    Center(child: Text("1")),
+                    Center(child: Text("G")),
+                  ],
+                )),
+          ),
           Positioned(
             // Sliding up pannel for time table
             child: SlidingUpPanel(

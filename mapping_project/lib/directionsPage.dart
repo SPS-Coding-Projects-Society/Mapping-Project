@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'custom_app_bar.dart';
+import 'directionsListPage.dart';
 
 // directions view
 class DirectionsView extends StatefulWidget {
@@ -13,6 +14,13 @@ class DirectionsViewState extends State<DirectionsView> {
   final List<String> entries = getDirections(); // list of text directions
   final List<IconData> icons = getIcons(); // list of icons
 
+  static void _pushDirectionsList(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+          builder: (BuildContext context) => DirectionsListView()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,8 +29,8 @@ class DirectionsViewState extends State<DirectionsView> {
         // map image
         Expanded(
             child: PhotoView(
-          imageProvider:
-              AssetImage('assets/map.png'), // TODO: replace temporary image
+          imageProvider: AssetImage(
+              'assets/images/map.png'), // TODO: replace temporary image
         )),
 
         //top box
@@ -119,7 +127,7 @@ class DirectionsViewState extends State<DirectionsView> {
                               // to list view button
                               FlatButton(
                                 onPressed: () {
-                                  Navigator.of(context).pushNamed('/list');
+                                  _pushDirectionsList(context);
                                 },
                                 child: Icon(
                                   Icons.list,

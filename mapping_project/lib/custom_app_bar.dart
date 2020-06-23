@@ -44,7 +44,7 @@ class CustomAppBar {
           icon: Icon(Icons.menu),
           onSelected: (value) {
             switch (value) {
-              case "lesson":
+              case "lessons":
                 _pushLessonsPage(context);
                 break;
               case "settings":
