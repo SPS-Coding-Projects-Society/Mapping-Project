@@ -77,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage>
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: CustomAppBar.create(context, "Home Page"),
+      backgroundColor: Theme.of(context).backgroundColor,
       body: Stack(
         children: <Widget>[
           Positioned(
@@ -85,9 +86,7 @@ class _MyHomePageState extends State<MyHomePage>
             initialScale: 2.5, // Initial scale of enlargement
             minScale: 1.0, // Lower boundary of scale of enlargement
             controller: controller,
-            backgroundDecoration: BoxDecoration(
-              color: Colors.white,
-            ),
+            backgroundDecoration: BoxDecoration(),
             child: SvgPicture.asset(select(scaleCopy, floor),
                 semanticsLabel: 'Map'),
           )),
@@ -98,7 +97,6 @@ class _MyHomePageState extends State<MyHomePage>
             left: 15,
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.white,
                 border: Border.all(color: Colors.grey, width: 1.0),
                 borderRadius: BorderRadius.circular(30),
               ),
@@ -138,8 +136,7 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
             child: FloatingActionButton(
               heroTag: "tannoy",
-              backgroundColor: Colors.white,
-              child: Icon(Icons.notifications, color: Colors.black),
+              child: Icon(Icons.notifications),
               onPressed: () {
                 print("pressed");
               },
@@ -163,8 +160,7 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
             child: FloatingActionButton(
               heroTag: "rooms",
-              backgroundColor: Colors.white,
-              child: Icon(Icons.bookmark, color: Colors.black),
+              child: Icon(Icons.bookmark),
               onPressed: () {
                 print("pressed");
               },
@@ -188,8 +184,7 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
             child: FloatingActionButton(
               heroTag: "settings",
-              backgroundColor: Colors.white,
-              child: Icon(Icons.settings, color: Colors.black),
+              child: Icon(Icons.settings),
               onPressed: () {
                 print("pressed");
               },
@@ -201,8 +196,7 @@ class _MyHomePageState extends State<MyHomePage>
             right: 15,
             child: FloatingActionButton(
               heroTag: "more",
-              backgroundColor: Colors.white,
-              child: Icon(Icons.more_vert, color: Colors.black),
+              child: Icon(Icons.more_vert),
               onPressed: () {
                 if (_moved != true) {
                   _animationController.forward();
@@ -220,8 +214,7 @@ class _MyHomePageState extends State<MyHomePage>
             left: 15,
             child: FloatingActionButton(
               heroTag: "navigation",
-              backgroundColor: Colors.white,
-              child: Icon(Icons.location_on, color: Colors.black),
+              child: Icon(Icons.location_on),
               onPressed: () {
                 print("pressed");
               },
@@ -235,8 +228,7 @@ class _MyHomePageState extends State<MyHomePage>
                 height: 150,
                 width: 40,
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.grey, width: 1.0),
+                  border: Border.all(width: 1.0),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: CupertinoPicker(
@@ -260,9 +252,8 @@ class _MyHomePageState extends State<MyHomePage>
                 child: Text("Time table"),
               ),
               collapsed: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(24.0)),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(24.0)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -270,7 +261,6 @@ class _MyHomePageState extends State<MyHomePage>
                       height: 5,
                       width: 60,
                       decoration: BoxDecoration(
-                        color: Colors.grey,
                         borderRadius: BorderRadius.circular(2.5),
                       ),
                     ),

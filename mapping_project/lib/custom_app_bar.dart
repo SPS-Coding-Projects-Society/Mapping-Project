@@ -18,11 +18,18 @@ class CustomAppBar {
   }
 
   static void _pushTannoyPage(BuildContext context) {
-    Navigator.of(context).pushReplacementNamed('tannoy');
+    Navigator.of(context).pushReplacementNamed('/tannoy');
+  }
+
+  static void _pushSavedLocsPage(BuildContext context) {
+    Navigator.of(context).pushReplacementNamed('/savedLocs');
   }
 
   static AppBar create(BuildContext context, String title) {
     return new AppBar(
+      textTheme: Theme.of(context).textTheme,
+      brightness: Theme.of(context).brightness,
+      backgroundColor: Theme.of(context).backgroundColor,
       title: Text(title),
       actions: <Widget>[
         PopupMenuButton(
@@ -44,6 +51,9 @@ class CustomAppBar {
               case "tannoy":
                 _pushTannoyPage(context);
                 break;
+              case "savedLocs":
+                _pushSavedLocsPage(context);
+                break;
               default:
             }
           },
@@ -51,6 +61,10 @@ class CustomAppBar {
             const PopupMenuItem<String>(
               value: "home",
               child: Text("Home Page"),
+            ),
+            const PopupMenuItem<String>(
+              value: "savedLocs",
+              child: Text("Saved Locations"),
             ),
             const PopupMenuItem<String>(
               value: "directions",

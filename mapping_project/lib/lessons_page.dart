@@ -13,7 +13,7 @@ class LessonsPage extends StatefulWidget {
 class LessonsPageState extends State<LessonsPage> {
   //loads a text file containing the lesson data from assets
   Future<List<String>> loadLessons() async {
-    var s = await rootBundle.loadString('assets/lessons.txt');
+    var s = await rootBundle.loadString('assets/text/lessons.txt');
     var lines = s.split("\n");
     return lines;
   }
@@ -67,7 +67,7 @@ class LessonsPageState extends State<LessonsPage> {
             if (snapshot.connectionState == ConnectionState.done) {
               return _buildLessonsList(snapshot.data);
             } else {
-              return CircularProgressIndicator();
+              return Center(child: CircularProgressIndicator());
             }
           }),
     );

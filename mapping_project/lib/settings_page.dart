@@ -1,31 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'custom_app_bar.dart';
-
-/*// #docregion SettingsPage
-class SettingsPage extends StatelessWidget {
-  // #docregion build
-  @override
-  Widget build(BuildContext context) {
-    return new DynamicTheme(
-      defaultBrightness: Brightness.light,
-      data: (brightness) => new ThemeData(
-        primaryColor: Colors.white,
-        brightness: brightness,
-      ),
-      themedWidgetBuilder: (context, theme) {
-        return new MaterialApp(
-          title: 'Settings',
-          theme: theme,
-          darkTheme: ThemeData.dark(),
-          home: Settings(),
-        );
-      },
-    );
-  }
-// #enddocregion build
-}
-// #enddocregion SettingsPage*/
+import 'themes.dart';
 
 // #docregion RWS-var
 class SettingsState extends State<Settings> {
@@ -34,8 +10,7 @@ class SettingsState extends State<Settings> {
       false; //the following three variables should be global variables -- to be implemented later
   bool _darkMode = false;
   String _accountName = "";
-  // #enddocregion RWS-var
-  // #docregion _buildSuggestions
+
   Widget _buildOptions() {
     return ListView(
       padding: const EdgeInsets.all(16),
@@ -91,10 +66,13 @@ class SettingsState extends State<Settings> {
   }
 
   void changeBrightness() {
-    DynamicTheme.of(context).setBrightness(
+    /*DynamicTheme.of(context).setBrightness(
         Theme.of(context).brightness == Brightness.dark
             ? Brightness.light
-            : Brightness.dark);
+            : Brightness.dark);*/
+    DynamicTheme.of(context)
+        .setThemeData(Theme.of(context) == darkTheme ? lightTheme : darkTheme);
+
     //the widget called above that uses the 'Dynamic Theme' package to actively change the theme - rebuilding the whole thing every time you switch
   }
   // #enddocregion _buildSuggestions
