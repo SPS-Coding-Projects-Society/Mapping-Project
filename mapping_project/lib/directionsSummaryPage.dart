@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'custom_app_bar.dart';
-import 'directionsPage.dart';
 
 // directions view
 class SummaryView extends StatefulWidget {
@@ -10,9 +9,7 @@ class SummaryView extends StatefulWidget {
 
 class SummaryViewState extends State<SummaryView> {
   static void _pushDirectionsPage(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (BuildContext context) => DirectionsView()),
-    );
+    Navigator.of(context).pushNamed('/directions');
   }
 
   @override

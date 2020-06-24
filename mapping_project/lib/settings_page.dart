@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'custom_app_bar.dart';
 
-// #docregion MyApp
-class MyApp extends StatelessWidget {
+/*// #docregion SettingsPage
+class SettingsPage extends StatelessWidget {
   // #docregion build
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
   }
 // #enddocregion build
 }
-// #enddocregion MyApp
+// #enddocregion SettingsPage*/
 
 // #docregion RWS-var
 class SettingsState extends State<Settings> {
