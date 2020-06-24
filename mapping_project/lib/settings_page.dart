@@ -70,6 +70,11 @@ class SettingsState extends State<Settings> {
             ? Brightness.light
             : Brightness.dark);
 
+    DynamicTheme.of(context).setThemeData(
+        Theme.of(context).brightness == Brightness.dark
+            ? ThemeData(backgroundColor: Colors.grey)
+            : ThemeData(backgroundColor: Colors.white));
+
     //the widget called above that uses the 'Dynamic Theme' package to actively change the theme - rebuilding the whole thing every time you switch
   }
   // #enddocregion _buildSuggestions
