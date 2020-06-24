@@ -9,7 +9,6 @@ import 'myhomepage.dart';
 import 'settings_page.dart';
 import 'tannoy_page.dart';
 import 'saved_locs.dart';
-import 'themes.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,8 +24,8 @@ class MyApp extends StatelessWidget {
         themedWidgetBuilder: (context, theme) {
           return new MaterialApp(
             title: 'Home Page',
-            theme: lightTheme,
-            darkTheme: darkTheme,
+            theme: theme,
+            darkTheme: ThemeData.dark(),
             initialRoute: '/',
             routes: <String, WidgetBuilder>{
               '/': (BuildContext context) => new MyHomePage(),

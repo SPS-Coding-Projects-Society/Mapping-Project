@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'custom_app_bar.dart';
-import 'themes.dart';
 
 // #docregion RWS-var
 class SettingsState extends State<Settings> {
@@ -66,12 +65,10 @@ class SettingsState extends State<Settings> {
   }
 
   void changeBrightness() {
-    /*DynamicTheme.of(context).setBrightness(
+    DynamicTheme.of(context).setBrightness(
         Theme.of(context).brightness == Brightness.dark
             ? Brightness.light
-            : Brightness.dark);*/
-    DynamicTheme.of(context)
-        .setThemeData(Theme.of(context) == darkTheme ? lightTheme : darkTheme);
+            : Brightness.dark);
 
     //the widget called above that uses the 'Dynamic Theme' package to actively change the theme - rebuilding the whole thing every time you switch
   }
