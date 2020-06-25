@@ -5,6 +5,7 @@ import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'custom_app_bar.dart';
+import 'lessons_view.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -62,14 +63,9 @@ class _MyHomePageState extends State<MyHomePage>
     });
   }
 
-  String select(double scale, int index) {
+  String select(int index) {
     // Selecting map image file by floor
-    if (scale < 3.0) {
-      floor = 0;
-      return maps[0];
-    } else {
-      return maps[index];
-    }
+    return maps[index];
   }
 
   @override
@@ -87,8 +83,7 @@ class _MyHomePageState extends State<MyHomePage>
             minScale: 1.0, // Lower boundary of scale of enlargement
             controller: controller,
             backgroundDecoration: BoxDecoration(),
-            child: SvgPicture.asset(select(scaleCopy, floor),
-                semanticsLabel: 'Map'),
+            child: SvgPicture.asset(select(floor), semanticsLabel: 'Map'),
           )),
           Positioned(
             // Floating search bar
@@ -237,7 +232,9 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
                 child: CupertinoPicker(
                   onSelectedItemChanged: (value) {
-                    floor = value;
+                    setState(() {
+                      floor = value;
+                    });
                   },
                   itemExtent: 30.0,
                   children: <Widget>[
@@ -254,31 +251,12 @@ class _MyHomePageState extends State<MyHomePage>
             child: SlidingUpPanel(
               //backdropColor: Theme.of(context).backgroundColor,
               color: Theme.of(context).cardColor,
-              boxShadow: [
+              /*boxShadow: [
                 BoxShadow(
                     color: Theme.of(context).buttonColor, spreadRadius: 1.0)
-              ],
-              panel: Center(
-                child: Text("Time table"),
-              ),
-              collapsed: Container(
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(24.0)),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      height: 5,
-                      width: 60,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).buttonColor,
-                        borderRadius: BorderRadius.circular(2.5),
-                      ),
-                    ),
-                    Text("\nExplore Your Timetable\n"),
-                  ],
-                ),
-              ),
+              ],*/
+              panel: LessonsCard(),
+              collapsed: Container(),
               borderRadius: BorderRadius.only(
                   topRight: Radius.circular(24.0),
                   topLeft: Radius.circular(24.0)),
