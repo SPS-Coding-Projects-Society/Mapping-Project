@@ -15,6 +15,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   var maps = [
+    'assets/images/Whole School 1.jfif',
     'assets/images/SPSMAP_Top.svg',
     'assets/images/SPSMAP_3rd.svg',
     'assets/images/SPSMAP_2nd.svg',
