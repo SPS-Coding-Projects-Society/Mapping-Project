@@ -239,7 +239,8 @@ class _MyHomePageState extends State<MyHomePage>
                   },
                   itemExtent: 30.0,
                   children: <Widget>[
-                    Center(child: Text("Testing123")),
+                    Center(child: Text("WS1")),
+                    Center(child: Text("T")),
                     Center(child: Text("3")),
                     Center(child: Text("2")),
                     Center(child: Text("1")),
