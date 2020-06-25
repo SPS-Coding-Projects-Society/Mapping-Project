@@ -88,15 +88,16 @@ class _MyHomePageState extends State<MyHomePage>
       body: Stack(
         children: <Widget>[
           Positioned(
-              // Map viewer
-              child: PhotoView.customChild(
-            initialScale: 1.0, // Initial scale of enlargement
-            minScale: 1.0,
-            maxScale: 8.0, // Lower boundary of scale of enlargement
-            controller: controller,
-            backgroundDecoration: BoxDecoration(),
-            child: SvgPicture.asset(select(floor), semanticsLabel: 'Map'),
-          )),
+            // Map viewer
+            child: PhotoView.customChild(
+              initialScale: 1.0, // Initial scale of enlargement
+              minScale: 1.0,
+              maxScale: 8.0, // Lower boundary of scale of enlargement
+              controller: controller,
+              backgroundDecoration: BoxDecoration(),
+              child: SvgPicture.asset(select(floor), semanticsLabel: 'Map'),
+            ),
+          ),
           Positioned(
             // Floating search bar
             top: 30,
