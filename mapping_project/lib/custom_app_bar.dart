@@ -33,6 +33,7 @@ class CustomAppBar {
       title: Text(title),
       actions: <Widget>[
         PopupMenuButton(
+          color: Theme.of(context).cardColor,
           icon: Icon(Icons.menu),
           onSelected: (value) {
             switch (value) {
@@ -71,16 +72,16 @@ class CustomAppBar {
               child: Text("Navigation"),
             ),
             const PopupMenuItem<String>(
-              value: "settings",
-              child: Text("Settings"),
-            ),
-            const PopupMenuItem<String>(
               value: "lessons",
               child: Text("Upcoming Lessons"),
             ),
             const PopupMenuItem<String>(
               value: "tannoy",
               child: Text("Tannoy Notices"),
+            ),
+            const PopupMenuItem<String>(
+              value: "settings",
+              child: Text("Settings"),
             ),
           ],
         )

@@ -79,10 +79,12 @@ class SummaryViewState extends State<SummaryView> {
           // Map viewer
           //child:
           PhotoView.customChild(
-            childSize: const Size(500, 350),
-            basePosition: Alignment.topCenter,
-            initialScale: 0.8, // Initial scale of enlargement
-            minScale: 0.8,
+            childSize: Size(MediaQuery.of(context).size.width,
+                MediaQuery.of(context).size.height * 0.5),
+            basePosition:
+                Alignment.lerp(Alignment.topCenter, Alignment.center, 0.75),
+            initialScale: 1.0, // Initial scale of enlargement
+            minScale: 1.0,
             maxScale: 8.0, // Lower boundary of scale of enlargement
             controller: controller,
             backgroundDecoration: BoxDecoration(),
@@ -136,15 +138,17 @@ class SummaryViewState extends State<SummaryView> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: MediaQuery.of(context).size.height / 2.5,
+              height: MediaQuery.of(context).size.height * 0.25,
               width: MediaQuery.of(context).size.width,
               child: Container(
                 decoration: BoxDecoration(
-                    color: Theme.of(context).backgroundColor.withAlpha(230),
-                    borderRadius: BorderRadius.only(
-                      topLeft: const Radius.circular(40.0),
-                      topRight: const Radius.circular(40.0),
-                    )),
+                  border: Border.all(color: Theme.of(context).buttonColor),
+                  color: Theme.of(context).cardColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: const Radius.circular(40.0),
+                    topRight: const Radius.circular(40.0),
+                  ),
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,

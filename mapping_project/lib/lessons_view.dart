@@ -27,11 +27,16 @@ class LessonsCardState extends State<LessonsCard> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
+        Container(
+          height: 15,
+          color: Colors.black.withOpacity(0),
+        ),
         Divider(
           color: Theme.of(context).dividerColor,
         ),
         Container(
           height: 15,
+          color: Colors.black.withOpacity(0),
         ),
         Container(
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(24.0)),
@@ -94,7 +99,7 @@ class LessonsCardState extends State<LessonsCard> {
   //builds the page
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).backgroundColor.withOpacity(0),
       //builds the lessons list, using data from a text file
       body: FutureBuilder(
           //loads the lessons

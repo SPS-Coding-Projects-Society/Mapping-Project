@@ -89,6 +89,8 @@ class _MyHomePageState extends State<MyHomePage>
           Positioned(
             // Map viewer
             child: PhotoView.customChild(
+              childSize: Size(MediaQuery.of(context).size.width,
+                  MediaQuery.of(context).size.height * 0.5),
               initialScale: 1.0, // Initial scale of enlargement
               minScale: 1.0,
               maxScale: 8.0, // Lower boundary of scale of enlargement
@@ -175,12 +177,11 @@ class _MyHomePageState extends State<MyHomePage>
             child: SlidingUpPanel(
               //backdropColor: Theme.of(context).backgroundColor,
               color: Theme.of(context).cardColor,
-              /*boxShadow: [
+              boxShadow: [
                 BoxShadow(
                     color: Theme.of(context).buttonColor, spreadRadius: 1.0)
-              ],*/
+              ],
               panel: LessonsCard(),
-              collapsed: Container(),
               borderRadius: BorderRadius.only(
                   topRight: Radius.circular(24.0),
                   topLeft: Radius.circular(24.0)),
