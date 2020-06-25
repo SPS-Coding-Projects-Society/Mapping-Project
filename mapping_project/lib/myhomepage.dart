@@ -15,12 +15,25 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   var maps = [
-    'assets/images/Whole School 1.svg',
-    'assets/images/SPSMAP_Top.svg',
-    'assets/images/SPSMAP_3rd.svg',
-    'assets/images/SPSMAP_2nd.svg',
-    'assets/images/SPSMAP_1st.svg',
-    'assets/images/SPSMAP_Ground.svg'
+    'assets/images/Whole.svg',
+    'assets/images/GTB1-G.svg',
+    'assets/images/GTB1-1.svg',
+    'assets/images/GTB1-2.svg',
+    'assets/images/GTB2-G.svg',
+    'assets/images/GTB2-1.svg',
+    'assets/images/GTB2-2.svg',
+    'assets/images/Milton-G.svg',
+    'assets/images/Milton-1.svg',
+    'assets/images/Milton-2.svg',
+    'assets/images/Milton-3.svg',
+    'assets/images/Music-G.svg',
+    'assets/images/Music-1.svg',
+    'assets/images/Pepys-G.svg',
+    'assets/images/Pepys-1.svg',
+    'assets/images/Science-G.svg',
+    'assets/images/Science-1.svg',
+    'assets/images/Science-2.svg',
+    'assets/images/Science-3.svg',
   ];
   //var _moved = false;
 
@@ -32,10 +45,6 @@ class _MyHomePageState extends State<MyHomePage>
 
   List<String> suggestions = [
     "Saved",
-    "Saved",
-    "Saved",
-    "Saved",
-    "Saved"
   ]; // List of saved places
   PhotoViewController controller; // Controller of map view
   double scaleCopy = 2.5;
@@ -60,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage>
 
   void listener(PhotoViewControllerValue value) {
     setState(() {
+      print(value.scale);
       scaleCopy = value.scale;
     });
   }
@@ -80,8 +90,9 @@ class _MyHomePageState extends State<MyHomePage>
           Positioned(
               // Map viewer
               child: PhotoView.customChild(
-            initialScale: 2.5, // Initial scale of enlargement
-            minScale: 1.0, // Lower boundary of scale of enlargement
+            initialScale: 1.0, // Initial scale of enlargement
+            minScale: 1.0,
+            maxScale: 8.0, // Lower boundary of scale of enlargement
             controller: controller,
             backgroundDecoration: BoxDecoration(),
             child: SvgPicture.asset(select(floor), semanticsLabel: 'Map'),
@@ -116,108 +127,6 @@ class _MyHomePageState extends State<MyHomePage>
               ),
             ),
           ),
-          /*PositionedTransition(
-            // Floating button for tannoy notice
-            rect: _animationController
-                .drive(
-                  CurveTween(
-                    curve: Curves.elasticOut,
-                  ),
-                )
-                .drive(
-                  RelativeRectTween(
-                    begin: RelativeRect.fromLTRB(
-                        (size.width - 65), (size.height - 160), 20, 115),
-                    end: RelativeRect.fromLTRB(
-                        (size.width - 135), (size.height - 160), 90, 115),
-                  ),
-                ),
-            child: FloatingActionButton(
-              heroTag: "tannoy",
-              child: Icon(Icons.notifications),
-              onPressed: () {
-                print("pressed");
-              },
-            ),
-          ),
-          PositionedTransition(
-            // Floating button for saved rooms
-            rect: _animationController
-                .drive(
-                  CurveTween(
-                    curve: Curves.elasticOut,
-                  ),
-                )
-                .drive(
-                  RelativeRectTween(
-                    begin: RelativeRect.fromLTRB(
-                        (size.width - 65), (size.height - 160), 20, 115),
-                    end: RelativeRect.fromLTRB(
-                        (size.width - 125), (size.height - 220), 80, 175),
-                  ),
-                ),
-            child: FloatingActionButton(
-              heroTag: "rooms",
-              child: Icon(Icons.bookmark),
-              onPressed: () {
-                print("pressed");
-              },
-            ),
-          ),
-          PositionedTransition(
-            // Floating button for setting
-            rect: _animationController
-                .drive(
-                  CurveTween(
-                    curve: Curves.elasticOut,
-                  ),
-                )
-                .drive(
-                  RelativeRectTween(
-                    begin: RelativeRect.fromLTRB(
-                        (size.width - 65), (size.height - 160), 20, 115),
-                    end: RelativeRect.fromLTRB(
-                        (size.width - 65), (size.height - 230), 20, 185),
-                  ),
-                ),
-            child: FloatingActionButton(
-              heroTag: "settings",
-              child: Icon(Icons.settings),
-              onPressed: () {
-                print("pressed");
-              },
-            ),
-          ),
-          Positioned(
-            // Floating button to show other buttons
-            bottom: 110,
-            right: 15,
-            child: FloatingActionButton(
-              heroTag: "more",
-              child: Icon(Icons.more_vert),
-              onPressed: () {
-                if (_moved != true) {
-                  _animationController.forward();
-                  _moved = true;
-                } else {
-                  _animationController.reverse();
-                  _moved = false;
-                }
-              },
-            ),
-          ),
-          Positioned(
-            // Floating button for navigation
-            bottom: 110,
-            left: 15,
-            child: FloatingActionButton(
-              heroTag: "navigation",
-              child: Icon(Icons.location_on),
-              onPressed: () {
-                print("pressed");
-              },
-            ),
-          ),*/
           Positioned(
             // Picker to choose floor (It will show up when zoomed)
             top: 100,
@@ -239,12 +148,25 @@ class _MyHomePageState extends State<MyHomePage>
                   },
                   itemExtent: 30.0,
                   children: <Widget>[
-                    Center(child: Text("WS1")),
-                    Center(child: Text("T")),
-                    Center(child: Text("3")),
-                    Center(child: Text("2")),
-                    Center(child: Text("1")),
-                    Center(child: Text("G")),
+                    Center(child: Text("W")),
+                    Center(child: Text("1-G")),
+                    Center(child: Text("1-1")),
+                    Center(child: Text("1-2")),
+                    Center(child: Text("2-G")),
+                    Center(child: Text("2-1")),
+                    Center(child: Text("2-2")),
+                    Center(child: Text("3-G")),
+                    Center(child: Text("3-1")),
+                    Center(child: Text("3-2")),
+                    Center(child: Text("3-3")),
+                    Center(child: Text("4-1")),
+                    Center(child: Text("4-2")),
+                    Center(child: Text("5-1")),
+                    Center(child: Text("5-2")),
+                    Center(child: Text("6-G")),
+                    Center(child: Text("6-1")),
+                    Center(child: Text("6-2")),
+                    Center(child: Text("6-3")),
                   ],
                 )),
           ),
