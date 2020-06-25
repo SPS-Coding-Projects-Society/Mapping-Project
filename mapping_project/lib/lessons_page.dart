@@ -30,7 +30,10 @@ class LessonsPageState extends State<LessonsPage> {
       padding: const EdgeInsets.all(16.0),
       itemBuilder: (context, item) {
         //returns a divider if odd, or lesson details if even
-        if (item.isOdd) return Divider();
+        if (item.isOdd)
+          return Divider(
+            color: Theme.of(context).dividerColor,
+          );
         final index = item ~/ 2;
         //creates a list tile for the lesson
         return _buildLessonRow(lessons[index]);

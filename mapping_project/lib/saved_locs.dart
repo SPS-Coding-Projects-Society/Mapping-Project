@@ -33,7 +33,9 @@ class _SavedLocsState extends State<SavedLocs> {
               ); //Shows the list of saved locs, updates quickly and efficiently :)
             },
             separatorBuilder: (context, index) {
-              return Divider();
+              return Divider(
+                color: Theme.of(context).dividerColor,
+              );
             },
           ),
         ),

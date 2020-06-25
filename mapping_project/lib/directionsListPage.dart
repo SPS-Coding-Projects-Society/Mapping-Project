@@ -30,7 +30,8 @@ class DirectionsListViewState extends State<DirectionsListView> {
                 ]),
           );
         },
-        separatorBuilder: (BuildContext context, int index) => const Divider(),
+        separatorBuilder: (BuildContext context, int index) =>
+            Divider(color: Theme.of(context).dividerColor),
       ),
     );
   }

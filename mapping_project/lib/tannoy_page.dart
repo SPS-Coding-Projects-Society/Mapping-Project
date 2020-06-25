@@ -33,7 +33,10 @@ class TannoyState extends State<Tannoy> {
       padding: const EdgeInsets.all(16.0),
       itemBuilder: (context, item) {
         //returns a divider if odd, or notice details if even
-        if (item.isOdd) return Divider();
+        if (item.isOdd)
+          return Divider(
+            color: Theme.of(context).dividerColor,
+          );
         final index = item ~/ 2;
         //creates a list tile for the notice
         return _buildNoticeRow(notices[index]);

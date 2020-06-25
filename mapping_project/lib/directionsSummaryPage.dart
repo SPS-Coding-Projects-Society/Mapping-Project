@@ -15,80 +15,91 @@ class SummaryViewState extends State<SummaryView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar.create(context, "Directions"),
-        backgroundColor: Theme.of(context).backgroundColor,
-        body: Stack(
-          children: <Widget>[
-            Image.asset(
-              'assets/images/map.png', // TODO:  replace temporary image
-              fit: BoxFit.cover,
-              height: double.infinity,
-              width: double.infinity,
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
+      appBar: CustomAppBar.create(context, "Directions"),
+      backgroundColor: Theme.of(context).backgroundColor,
+      body: Stack(
+        children: <Widget>[
+          Image.asset(
+            'assets/images/map.png', // TODO:  replace temporary image
+            fit: BoxFit.cover,
+            height: double.infinity,
+            width: double.infinity,
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: MediaQuery.of(context).size.height / 2.5,
+              width: MediaQuery.of(context).size.width,
               child: Container(
-                  height: MediaQuery.of(context).size.height / 2.5,
-                  width: MediaQuery.of(context).size.width,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Theme.of(context).backgroundColor.withAlpha(230),
-                        borderRadius: BorderRadius.only(
-                          topLeft: const Radius.circular(40.0),
-                          topRight: const Radius.circular(40.0),
-                        )),
-                    child: Column(
+                decoration: BoxDecoration(
+                    color: Theme.of(context).backgroundColor.withAlpha(230),
+                    borderRadius: BorderRadius.only(
+                      topLeft: const Radius.circular(40.0),
+                      topRight: const Radius.circular(40.0),
+                    )),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(40, 20, 0, 20),
+                      child: Text(
+                        getDestination(),
+                        style: TextStyle(fontSize: 30),
+                      ),
+                    ),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Padding(
-                            padding: EdgeInsets.fromLTRB(40, 20, 0, 20),
-                            child: Text(getDestination(),
-                                style: TextStyle(fontSize: 30))),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Icon(
-                              Icons.directions_walk,
-                              size: 80,
-                            ),
-                            IntrinsicWidth(
-                                child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: <Widget>[
-                                Text(
-                                  getSummary(),
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                                RaisedButton(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10)),
-                                  onPressed: () {
-                                    _pushDirectionsPage(context);
-                                  },
-                                  child: const Text('Start Navigation',
-                                      style: TextStyle(fontSize: 18)),
-                                ),
-                              ],
-                            ))
-                          ],
+                        Icon(
+                          Icons.directions_walk,
+                          size: 80,
                         ),
-                        Align(
-                            alignment: Alignment.center,
-                            child: FlatButton(
+                        IntrinsicWidth(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: <Widget>[
+                              Text(
+                                getSummary(),
+                                style: TextStyle(fontSize: 18),
+                              ),
+                              RaisedButton(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
                                 onPressed: () {
-                                  Navigator.of(context).maybePop();
-                                }, // TODO: navigation
-                                child: Text('Cancel',
-                                    style: TextStyle(
-                                        color: Colors.red, fontSize: 15))))
+                                  _pushDirectionsPage(context);
+                                },
+                                child: const Text('Start Navigation',
+                                    style: TextStyle(fontSize: 18)),
+                              ),
+                            ],
+                          ),
+                        )
                       ],
                     ),
-                  )),
+                    Align(
+                      alignment: Alignment.center,
+                      child: FlatButton(
+                        onPressed: () {
+                          Navigator.of(context).pushReplacementNamed('/');
+                        },
+                        child: Text(
+                          'Cancel',
+                          style: TextStyle(
+                              color: Theme.of(context).buttonColor,
+                              fontSize: 15),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 
   String getDestination() {

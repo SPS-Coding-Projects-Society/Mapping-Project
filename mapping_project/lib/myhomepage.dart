@@ -97,8 +97,9 @@ class _MyHomePageState extends State<MyHomePage>
             left: 15,
             child: Container(
               decoration: BoxDecoration(
-                color: Theme.of(context).buttonColor,
-                border: Border.all(color: Colors.grey, width: 1.0),
+                color: Theme.of(context).primaryColor,
+                border: Border.all(
+                    color: Theme.of(context).buttonColor, width: 1.0),
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Row(
@@ -229,8 +230,9 @@ class _MyHomePageState extends State<MyHomePage>
                 height: 150,
                 width: 40,
                 decoration: BoxDecoration(
-                  color: Theme.of(context).buttonColor,
-                  border: Border.all(width: 1.0),
+                  color: Theme.of(context).primaryColor,
+                  border: Border.all(
+                      color: Theme.of(context).buttonColor, width: 1.0),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: CupertinoPicker(
@@ -251,7 +253,11 @@ class _MyHomePageState extends State<MyHomePage>
             // Sliding up pannel for time table
             child: SlidingUpPanel(
               //backdropColor: Theme.of(context).backgroundColor,
-              color: Theme.of(context).accentColor,
+              color: Theme.of(context).cardColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Theme.of(context).buttonColor, spreadRadius: 1.0)
+              ],
               panel: Center(
                 child: Text("Time table"),
               ),

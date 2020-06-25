@@ -29,7 +29,7 @@ class CustomAppBar {
     return new AppBar(
       textTheme: Theme.of(context).textTheme,
       brightness: Theme.of(context).brightness,
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: Theme.of(context).appBarTheme.color,
       title: Text(title),
       actions: <Widget>[
         PopupMenuButton(
@@ -68,19 +68,19 @@ class CustomAppBar {
             ),
             const PopupMenuItem<String>(
               value: "directions",
-              child: Text("Directions Page"),
+              child: Text("Navigation"),
             ),
             const PopupMenuItem<String>(
               value: "settings",
-              child: Text("Settings Page"),
+              child: Text("Settings"),
             ),
             const PopupMenuItem<String>(
               value: "lessons",
-              child: Text("Lessons Page"),
+              child: Text("Upcoming Lessons"),
             ),
             const PopupMenuItem<String>(
               value: "tannoy",
-              child: Text("Tannoy Page"),
+              child: Text("Tannoy Notices"),
             ),
           ],
         )

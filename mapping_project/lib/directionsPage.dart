@@ -81,11 +81,12 @@ class DirectionsViewState extends State<DirectionsView> {
                           size: 50,
                         ),
                         onPressed: () {
+                          // next instruction
                           setState(() {
                             index =
                                 index < entries.length - 1 ? index + 1 : index;
                           });
-                        }, // next instruction
+                        },
                       ),
                     ],
                   )),
@@ -138,7 +139,7 @@ class DirectionsViewState extends State<DirectionsView> {
                           FlatButton(
                               onPressed: () {
                                 Navigator.of(context).pop();
-                              }, // TODO: navigation
+                              },
                               child: Text('End Navigation',
                                   style: TextStyle(
                                       color: Theme.of(context).buttonColor,
