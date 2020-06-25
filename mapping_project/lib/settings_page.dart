@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:dynamic_theme/dynamic_theme.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'custom_app_bar.dart';
+import 'themes.dart';
 
 // #docregion RWS-var
 class SettingsState extends State<Settings> {
   final _biggerFont = const TextStyle(fontSize: 18.0);
   bool _metricImp =
       false; //the following three variables should be global variables -- to be implemented later
-  bool _darkMode = false;
+  var _darkTheme = true;
   String _accountName = "";
 
   Widget _buildOptions() {
+    final themeNotifier = Provider.of<ThemeNotifier>(context);
+    _darkTheme = (themeNotifier.getTheme() == darkTheme);
     return ListView(
       padding: const EdgeInsets.all(16),
       children: <Widget>[
@@ -47,37 +51,30 @@ class SettingsState extends State<Settings> {
         SwitchListTile(
           //as above^
           title:
-              Text(_darkMode ? "Light Mode" : "Dark Mode", style: _biggerFont),
-          value: _darkMode,
+              Text(_darkTheme ? "Light Mode" : "Dark Mode", style: _biggerFont),
+          value: _darkTheme,
           activeColor: Colors.blueGrey,
           activeTrackColor: Colors.blueGrey.shade200,
           inactiveTrackColor: Colors.blueGrey.shade200,
           inactiveThumbColor: Colors.blueGrey,
           onChanged: (bool newValue) {
             setState(() {
-              _darkMode = newValue;
+              _darkTheme = newValue;
             });
-            changeBrightness();
+            onThemeChanged(newValue, themeNotifier);
           },
         ),
       ],
     );
   }
 
-  void changeBrightness() {
-    DynamicTheme.of(context).setBrightness(
-        Theme.of(context).brightness == Brightness.dark
-            ? Brightness.light
-            : Brightness.dark);
-
-    DynamicTheme.of(context).setThemeData(
-        Theme.of(context).brightness == Brightness.dark
-            ? ThemeData(backgroundColor: Colors.grey)
-            : ThemeData(backgroundColor: Colors.white));
-
-    //the widget called above that uses the 'Dynamic Theme' package to actively change the theme - rebuilding the whole thing every time you switch
+  void onThemeChanged(bool value, ThemeNotifier themeNotifier) async {
+    (value)
+        ? themeNotifier.setTheme(darkTheme)
+        : themeNotifier.setTheme(lightTheme);
+    var prefs = await SharedPreferences.getInstance();
+    prefs.setBool('darkMode', value);
   }
-  // #enddocregion _buildSuggestions
 
   // #docregion RWS-build
   @override
