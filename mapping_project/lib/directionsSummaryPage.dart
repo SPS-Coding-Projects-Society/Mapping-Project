@@ -16,6 +16,7 @@ class SummaryViewState extends State<SummaryView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: CustomAppBar.create(context, "Directions"),
+        backgroundColor: Theme.of(context).backgroundColor,
         body: Stack(
           children: <Widget>[
             Image.asset(

@@ -60,6 +60,7 @@ class TannoyState extends State<Tannoy> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.create(context, "Notices Page"),
+      backgroundColor: Theme.of(context).backgroundColor,
       //builds the notices list, using data from a text file
       body: FutureBuilder(
           //loads the notices

@@ -21,6 +21,7 @@ class DirectionsViewState extends State<DirectionsView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.create(context, "Directions"),
+      backgroundColor: Theme.of(context).backgroundColor,
       body: Stack(children: <Widget>[
         // map image
         Expanded(
@@ -140,7 +141,8 @@ class DirectionsViewState extends State<DirectionsView> {
                               }, // TODO: navigation
                               child: Text('End Navigation',
                                   style: TextStyle(
-                                      color: Colors.red, fontSize: 15))),
+                                      color: Theme.of(context).buttonColor,
+                                      fontSize: 15))),
                         ])))),
       ]),
     );

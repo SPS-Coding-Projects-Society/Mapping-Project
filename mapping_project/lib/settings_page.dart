@@ -37,11 +37,11 @@ class SettingsState extends State<Settings> {
                   : "Metric", //Alternates between the two options
               style: _biggerFont),
           value: _metricImp,
-          activeColor: Colors.blueGrey,
-          activeTrackColor: Colors.blueGrey.shade200,
-          inactiveTrackColor: Colors.blueGrey.shade200,
-          inactiveThumbColor: Colors
-              .blueGrey, //changing the track colours so they look the same when on/off since this is not an on/off switch
+          activeColor: Theme.of(context).buttonColor,
+          activeTrackColor: Theme.of(context).accentColor,
+          inactiveTrackColor: Theme.of(context).accentColor,
+          inactiveThumbColor: Theme.of(context)
+              .buttonColor, //changing the track colours so they look the same when on/off since this is not an on/off switch
           onChanged: (bool newValue) {
             setState(() {
               _metricImp = newValue; //assigning new value
@@ -53,10 +53,10 @@ class SettingsState extends State<Settings> {
           title:
               Text(_darkTheme ? "Light Mode" : "Dark Mode", style: _biggerFont),
           value: _darkTheme,
-          activeColor: Colors.blueGrey,
-          activeTrackColor: Colors.blueGrey.shade200,
-          inactiveTrackColor: Colors.blueGrey.shade200,
-          inactiveThumbColor: Colors.blueGrey,
+          activeColor: Theme.of(context).buttonColor,
+          activeTrackColor: Theme.of(context).accentColor,
+          inactiveTrackColor: Theme.of(context).accentColor,
+          inactiveThumbColor: Theme.of(context).buttonColor,
           onChanged: (bool newValue) {
             setState(() {
               _darkTheme = newValue;
@@ -82,6 +82,7 @@ class SettingsState extends State<Settings> {
     return Scaffold(
       //scaffold just arranges the options nicely
       appBar: CustomAppBar.create(context, "Settings Page"),
+      backgroundColor: Theme.of(context).backgroundColor,
       body: _buildOptions(),
     );
   }

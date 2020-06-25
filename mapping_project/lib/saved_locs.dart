@@ -22,6 +22,7 @@ class _SavedLocsState extends State<SavedLocs> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: CustomAppBar.create(context, "Saved Locations"),
+        backgroundColor: Theme.of(context).backgroundColor,
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListView.separated(

@@ -20,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage>
     'assets/images/SPSMAP_1st.svg',
     'assets/images/SPSMAP_Ground.svg'
   ];
-  var _moved = false;
+  //var _moved = false;
 
   int floor = 0;
 
@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage>
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
+    //final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: CustomAppBar.create(context, "Home Page"),
       backgroundColor: Theme.of(context).backgroundColor,
@@ -97,6 +97,7 @@ class _MyHomePageState extends State<MyHomePage>
             left: 15,
             child: Container(
               decoration: BoxDecoration(
+                color: Theme.of(context).buttonColor,
                 border: Border.all(color: Colors.grey, width: 1.0),
                 borderRadius: BorderRadius.circular(30),
               ),
@@ -118,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage>
               ),
             ),
           ),
-          PositionedTransition(
+          /*PositionedTransition(
             // Floating button for tannoy notice
             rect: _animationController
                 .drive(
@@ -219,7 +220,7 @@ class _MyHomePageState extends State<MyHomePage>
                 print("pressed");
               },
             ),
-          ),
+          ),*/
           Positioned(
             // Picker to choose floor (It will show up when zoomed)
             top: 100,
@@ -228,6 +229,7 @@ class _MyHomePageState extends State<MyHomePage>
                 height: 150,
                 width: 40,
                 decoration: BoxDecoration(
+                  color: Theme.of(context).buttonColor,
                   border: Border.all(width: 1.0),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -248,6 +250,8 @@ class _MyHomePageState extends State<MyHomePage>
           Positioned(
             // Sliding up pannel for time table
             child: SlidingUpPanel(
+              //backdropColor: Theme.of(context).backgroundColor,
+              color: Theme.of(context).accentColor,
               panel: Center(
                 child: Text("Time table"),
               ),
@@ -261,13 +265,11 @@ class _MyHomePageState extends State<MyHomePage>
                       height: 5,
                       width: 60,
                       decoration: BoxDecoration(
+                        color: Theme.of(context).buttonColor,
                         borderRadius: BorderRadius.circular(2.5),
                       ),
                     ),
-                    Text(
-                      "\nExplore Your Timetable\n",
-                      style: TextStyle(color: Colors.black54),
-                    ),
+                    Text("\nExplore Your Timetable\n"),
                   ],
                 ),
               ),

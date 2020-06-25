@@ -29,7 +29,7 @@ class CustomAppBar {
     return new AppBar(
       textTheme: Theme.of(context).textTheme,
       brightness: Theme.of(context).brightness,
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).primaryColor,
       title: Text(title),
       actions: <Widget>[
         PopupMenuButton(

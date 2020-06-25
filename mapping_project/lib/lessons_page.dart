@@ -58,6 +58,7 @@ class LessonsPageState extends State<LessonsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.create(context, "Lessons Page"),
+      backgroundColor: Theme.of(context).backgroundColor,
       //builds the lessons list, using data from a text file
       body: FutureBuilder(
           //loads the lessons

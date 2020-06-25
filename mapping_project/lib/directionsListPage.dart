@@ -15,6 +15,7 @@ class DirectionsListViewState extends State<DirectionsListView> {
 
     return Scaffold(
       appBar: CustomAppBar.create(context, "Directions List"),
+      backgroundColor: Theme.of(context).backgroundColor,
       body: ListView.separated(
         padding: const EdgeInsets.all(8),
         itemCount: entries.length,
