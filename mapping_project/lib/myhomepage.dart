@@ -69,7 +69,6 @@ class _MyHomePageState extends State<MyHomePage>
 
   void listener(PhotoViewControllerValue value) {
     setState(() {
-      print(value.scale);
       scaleCopy = value.scale;
     });
   }
