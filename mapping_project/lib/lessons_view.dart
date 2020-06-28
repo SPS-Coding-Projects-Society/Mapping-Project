@@ -28,14 +28,14 @@ class LessonsCardState extends State<LessonsCard> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
-          height: 15,
+          height: MediaQuery.of(context).size.height / 28.1904762 / 2,
           color: Colors.black.withOpacity(0),
         ),
         Divider(
           color: Theme.of(context).dividerColor,
         ),
         Container(
-          height: 15,
+          height: MediaQuery.of(context).size.height / 28.1904762 / 2,
           color: Colors.black.withOpacity(0),
         ),
         Container(
@@ -44,8 +44,8 @@ class LessonsCardState extends State<LessonsCard> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                height: 5,
-                width: 60,
+                height: MediaQuery.of(context).size.height / 28.1904762 / 6,
+                width: MediaQuery.of(context).size.width / 27.4285714 * 4,
                 decoration: BoxDecoration(
                   color: Theme.of(context).buttonColor,
                   borderRadius: BorderRadius.circular(2.5),
@@ -63,7 +63,7 @@ class LessonsCardState extends State<LessonsCard> {
         Flexible(
           child: ListView.builder(
             itemCount: (lessons.length * 2),
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(8.0),
             itemBuilder: (context, item) {
               //returns a divider if odd, or lesson details if even
               if (item.isOdd)

@@ -27,7 +27,7 @@ class LessonsPageState extends State<LessonsPage> {
     //creates a list view of the lessons
     return ListView.builder(
       itemCount: (lessons.length * 2),
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(8.0),
       itemBuilder: (context, item) {
         //returns a divider if odd, or lesson details if even
         if (item.isOdd)

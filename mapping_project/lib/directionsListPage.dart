@@ -21,7 +21,7 @@ class DirectionsListViewState extends State<DirectionsListView> {
         itemCount: entries.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            height: 50,
+            height: MediaQuery.of(context).size.height / 16.9142857,
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[

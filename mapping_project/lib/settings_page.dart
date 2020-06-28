@@ -19,7 +19,7 @@ class SettingsState extends State<Settings> {
     final themeNotifier = Provider.of<ThemeNotifier>(context);
     _darkTheme = (themeNotifier.getTheme() == darkTheme);
     return ListView(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(8),
       children: <Widget>[
         Align(
             alignment: Alignment.centerLeft,

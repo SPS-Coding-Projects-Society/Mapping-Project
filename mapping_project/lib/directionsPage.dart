@@ -94,8 +94,9 @@ class DirectionsViewState extends State<DirectionsView> {
           //),
           Positioned(
             // Picker to choose floor (It will show up when zoomed)
-            top: MediaQuery.of(context).size.height * 0.25 + 15,
-            left: 15,
+            top: MediaQuery.of(context).size.height * 0.25 +
+                MediaQuery.of(context).size.width / 27.4285714,
+            left: MediaQuery.of(context).size.width / 27.4285714,
             child: Container(
               height: 150,
               width: 40,

@@ -101,9 +101,9 @@ class _MyHomePageState extends State<MyHomePage>
           ),
           Positioned(
             // Floating search bar
-            top: 30,
-            right: 15,
-            left: 15,
+            top: MediaQuery.of(context).size.height / 28.1904762,
+            right: MediaQuery.of(context).size.width / 27.4285714,
+            left: MediaQuery.of(context).size.width / 27.4285714,
             child: Container(
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
@@ -121,7 +121,9 @@ class _MyHomePageState extends State<MyHomePage>
                       textInputAction: TextInputAction.go,
                       decoration: InputDecoration(
                           border: InputBorder.none,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 15),
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: MediaQuery.of(context).size.width /
+                                  27.4285714),
                           hintText: "Search"),
                     ),
                   ),
@@ -131,11 +133,11 @@ class _MyHomePageState extends State<MyHomePage>
           ),
           Positioned(
             // Picker to choose floor (It will show up when zoomed)
-            top: 100,
-            left: 15,
+            top: 50 + 2 * (MediaQuery.of(context).size.height / 28.1904762),
+            left: MediaQuery.of(context).size.width / 27.4285714,
             child: Container(
-                height: 150,
-                width: 40,
+                height: 5 * (MediaQuery.of(context).size.height / 28.1904762),
+                width: MediaQuery.of(context).size.width / 10.2857143,
                 decoration: BoxDecoration(
                   color: Theme.of(context).primaryColor,
                   border: Border.all(
@@ -148,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage>
                       floor = value;
                     });
                   },
-                  itemExtent: 30.0,
+                  itemExtent: MediaQuery.of(context).size.height / 28.1904762,
                   children: <Widget>[
                     Center(child: Text("W")),
                     Center(child: Text("1-G")),

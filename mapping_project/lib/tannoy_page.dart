@@ -30,7 +30,7 @@ class TannoyState extends State<Tannoy> {
     //creates a list view of the notices
     return ListView.builder(
       itemCount: (notices.length * 2),
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(8.0),
       itemBuilder: (context, item) {
         //returns a divider if odd, or notice details if even
         if (item.isOdd)

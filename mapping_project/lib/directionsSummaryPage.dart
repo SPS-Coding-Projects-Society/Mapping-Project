@@ -96,8 +96,8 @@ class SummaryViewState extends State<SummaryView> {
             top: 15,
             left: 15,
             child: Container(
-              height: 150,
-              width: 40,
+              height: 5 * (MediaQuery.of(context).size.height / 28.1904762),
+              width: MediaQuery.of(context).size.width / 10.2857143,
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
                 border: Border.all(
@@ -110,7 +110,7 @@ class SummaryViewState extends State<SummaryView> {
                     floor = value;
                   });
                 },
-                itemExtent: 30.0,
+                itemExtent: MediaQuery.of(context).size.height / 28.1904762,
                 children: <Widget>[
                   Center(child: Text("W")),
                   Center(child: Text("1-G")),
@@ -154,10 +154,17 @@ class SummaryViewState extends State<SummaryView> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.fromLTRB(40, 20, 0, 20),
+                      padding: EdgeInsets.fromLTRB(
+                          MediaQuery.of(context).size.width / 10.2857143,
+                          MediaQuery.of(context).size.height / 42.2857143,
+                          0,
+                          MediaQuery.of(context).size.height / 42.2857143),
                       child: Text(
                         getDestination(),
-                        style: TextStyle(fontSize: 30),
+                        style: TextStyle(
+                            fontSize: 2 *
+                                MediaQuery.of(context).size.width /
+                                27.4285714),
                       ),
                     ),
                     Row(
@@ -165,7 +172,8 @@ class SummaryViewState extends State<SummaryView> {
                       children: <Widget>[
                         Icon(
                           Icons.directions_walk,
-                          size: 80,
+                          size: 2 *
+                              (MediaQuery.of(context).size.width / 10.2857143),
                         ),
                         IntrinsicWidth(
                           child: Column(
@@ -183,7 +191,7 @@ class SummaryViewState extends State<SummaryView> {
                                   _pushDirectionsPage(context);
                                 },
                                 child: const Text('Start Navigation',
-                                    style: TextStyle(fontSize: 18)),
+                                    style: TextStyle(fontSize: 20)),
                               ),
                             ],
                           ),
