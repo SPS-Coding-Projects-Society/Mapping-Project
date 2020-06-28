@@ -4,6 +4,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'custom_app_bar.dart';
 import 'themes.dart';
 
+//user feedback
+//easter egg
+
 // #docregion RWS-var
 class SettingsState extends State<Settings> {
   final _biggerFont = const TextStyle(fontSize: 18.0);

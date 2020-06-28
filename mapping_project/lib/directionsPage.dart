@@ -279,9 +279,9 @@ class DirectionsViewState extends State<DirectionsView> {
   static List<IconData> getIcons() {
     // replicated in directionsListPage - make global somehow? TODO: replace
     return <IconData>[
-      Icons.arrow_left,
+      Icons.arrow_back,
       Icons.arrow_upward,
-      Icons.arrow_right,
+      Icons.arrow_forward,
       Icons.done
     ];
   }
