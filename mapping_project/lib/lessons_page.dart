@@ -13,7 +13,7 @@ class LessonsPage extends StatefulWidget {
 class LessonsPageState extends State<LessonsPage> {
   //loads a text file containing the lesson data from assets
   Future<List<String>> loadLessons() async {
-    var s = await rootBundle.loadString('assets/lessons.txt');
+    var s = await rootBundle.loadString('assets/text/lessons.txt');
     var lines = s.split("\n");
     return lines;
   }
@@ -27,10 +27,13 @@ class LessonsPageState extends State<LessonsPage> {
     //creates a list view of the lessons
     return ListView.builder(
       itemCount: (lessons.length * 2),
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(8.0),
       itemBuilder: (context, item) {
         //returns a divider if odd, or lesson details if even
-        if (item.isOdd) return Divider();
+        if (item.isOdd)
+          return Divider(
+            color: Theme.of(context).dividerColor,
+          );
         final index = item ~/ 2;
         //creates a list tile for the lesson
         return _buildLessonRow(lessons[index]);
@@ -58,6 +61,7 @@ class LessonsPageState extends State<LessonsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.create(context, "Lessons Page"),
+      backgroundColor: Theme.of(context).backgroundColor,
       //builds the lessons list, using data from a text file
       body: FutureBuilder(
           //loads the lessons
@@ -67,7 +71,7 @@ class LessonsPageState extends State<LessonsPage> {
             if (snapshot.connectionState == ConnectionState.done) {
               return _buildLessonsList(snapshot.data);
             } else {
-              return CircularProgressIndicator();
+              return Center(child: CircularProgressIndicator());
             }
           }),
     );

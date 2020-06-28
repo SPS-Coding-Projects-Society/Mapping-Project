@@ -1,28 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:mapping_project/saved_locs.dart';
+import 'package:provider/provider.dart';
+import 'package:mapping_project/themes.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/services.dart';
 import 'directionsListPage.dart';
 import 'directionsPage.dart';
 import 'directionsSummaryPage.dart';
 import 'lessons_page.dart';
 import 'myhomepage.dart';
 import 'settings_page.dart';
-import 'tannoy.dart';
+import 'tannoy_page.dart';
+import 'saved_locs.dart';
 
-void main() => runApp(MyApp(Brightness.light));
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]).then((_) {
+    SharedPreferences.getInstance().then((prefs) {
+      var darkModeOn = prefs.getBool('darkMode') ?? true;
+      runApp(
+        ChangeNotifierProvider<ThemeNotifier>(
+          create: (_) => ThemeNotifier(darkModeOn ? darkTheme : lightTheme),
+          child: MyApp(),
+        ),
+      );
+    });
+  });
+}
 
 class MyApp extends StatelessWidget {
-  MyApp(this.brightness);
-
-  final Brightness brightness;
-
   @override
-  //because we're inheriting from the StatelessWidget class (which has its own build method), we have to override its build method
   Widget build(BuildContext context) {
-    //every build method must contain a BuildContext
+    final themeNotifier = Provider.of<ThemeNotifier>(context);
     return MaterialApp(
-      theme:
-          ThemeData(primaryColor: Colors.purple[900], brightness: brightness),
-      darkTheme: ThemeData.dark(),
-
+      title: 'Chitr',
+      theme: themeNotifier.getTheme(),
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
         '/': (BuildContext context) => new MyHomePage(),
@@ -33,6 +45,7 @@ class MyApp extends StatelessWidget {
         '/directions': (BuildContext context) => new DirectionsView(),
         '/homepage': (BuildContext context) => new MyHomePage(),
         '/tannoy': (BuildContext context) => new Tannoy(),
+        '/savedLocs': (BuildContext context) => new SavedLocs(),
       },
     );
   }

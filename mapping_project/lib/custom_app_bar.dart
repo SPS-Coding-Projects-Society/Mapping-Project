@@ -18,14 +18,22 @@ class CustomAppBar {
   }
 
   static void _pushTannoyPage(BuildContext context) {
-    Navigator.of(context).pushReplacementNamed('tannoy');
+    Navigator.of(context).pushReplacementNamed('/tannoy');
+  }
+
+  static void _pushSavedLocsPage(BuildContext context) {
+    Navigator.of(context).pushReplacementNamed('/savedLocs');
   }
 
   static AppBar create(BuildContext context, String title) {
     return new AppBar(
+      textTheme: Theme.of(context).textTheme,
+      brightness: Theme.of(context).brightness,
+      backgroundColor: Theme.of(context).appBarTheme.color,
       title: Text(title),
       actions: <Widget>[
         PopupMenuButton(
+          color: Theme.of(context).cardColor,
           icon: Icon(Icons.menu),
           onSelected: (value) {
             switch (value) {
@@ -44,6 +52,9 @@ class CustomAppBar {
               case "tannoy":
                 _pushTannoyPage(context);
                 break;
+              case "savedLocs":
+                _pushSavedLocsPage(context);
+                break;
               default:
             }
           },
@@ -53,20 +64,24 @@ class CustomAppBar {
               child: Text("Home Page"),
             ),
             const PopupMenuItem<String>(
-              value: "directions",
-              child: Text("Directions Page"),
+              value: "savedLocs",
+              child: Text("Saved Locations"),
             ),
             const PopupMenuItem<String>(
-              value: "settings",
-              child: Text("Settings Page"),
+              value: "directions",
+              child: Text("Navigation"),
             ),
             const PopupMenuItem<String>(
               value: "lessons",
-              child: Text("Lessons Page"),
+              child: Text("Upcoming Lessons"),
             ),
             const PopupMenuItem<String>(
               value: "tannoy",
-              child: Text("Tannoy Page"),
+              child: Text("Tannoy Notices"),
+            ),
+            const PopupMenuItem<String>(
+              value: "settings",
+              child: Text("Settings"),
             ),
           ],
         )
