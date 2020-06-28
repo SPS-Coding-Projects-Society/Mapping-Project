@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'custom_app_bar.dart';
+import 'room.dart';
 
 //All it needs for input is a List<string>,
 //function returnList() returns updatedlist upon execution
@@ -16,7 +17,11 @@ class SavedLocs extends StatefulWidget {
 class _SavedLocsState extends State<SavedLocs> {
   //Actual savedlocs ofc
 
-  var userLocs = ["Room 1", "Room 2", "Room 3"];
+  var userLocs = [
+    Room.fromString("Room1", "JJR", "CompLab"),
+    Room.fromString("Room2", "JMR", "Rambo's Classroom"),
+    Room.fromString("BRGOffice", "Girvo", "office")
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +34,8 @@ class _SavedLocsState extends State<SavedLocs> {
             itemCount: userLocs.length,
             itemBuilder: (context, index) {
               return ListTile(
-                title: Text(userLocs[index]),
+                title: Text(userLocs[index].name),
+                subtitle: Text(userLocs[index].description),
               ); //Shows the list of saved locs, updates quickly and efficiently :)
             },
             separatorBuilder: (context, index) {
@@ -66,53 +72,69 @@ class _SavedLocsState extends State<SavedLocs> {
 
   void removeItemOnValue() {
     //Removes item from list when entered by user
-    createPopupBox(context, false).then((onValue) {
+    createPopupBox1(context).then((onValue) {
       setState(() {
         if (onValue != null) {
-          userLocs.remove(onValue);
+          userLocs.remove(findRoom(userLocs, onValue));
         }
       });
     });
+  }
+
+  Room findRoom(List<Room> l, String name) {
+    for (var i = 0; i < l.length; i++) {
+      if (l[i].name == name) {
+        return l[i];
+      }
+    }
+    return Room.fromString("", "", "");
   }
 
   void addItemOnValue() {
     //Adds item to list when entered by user
-    createPopupBox(context, true).then((onValue) {
+    // String roomname = "a";
+    // String description = "c";
+
+    createPopupBox2(context, true, false).then((onValue) {
       setState(() {
         if (onValue != null) {
-          userLocs.add(onValue);
+          userLocs.add(Room.fromString(onValue[0], "b", onValue[1]));
         }
       });
     });
+
+    // createPopupBox(context, true, false).then((onValue) {
+    //   setState(() {
+    //     if (onValue != null) {
+    //       description = onValue;
+    //     } else {
+    //       description = "help";
+    //     }
+    //   });
+    // });
+
+    //userLocs.add(Room.fromString(roomname, "b", description));
   }
 
-  List<String> returnList() {
+  List<Room> returnList() {
     //Returns the list of rooms
     return userLocs;
   }
 
-  Future<String> createPopupBox(
-      BuildContext context,
-      bool
-          addorremove) //Creates popup box which allows user to enter the name of the location
+  Future<String> createPopupBox1(
+    BuildContext context,
+  ) //Creates popup box which allows user to enter the name of the location
   {
     TextEditingController customController = TextEditingController();
-
-    String adder =
-        "remove"; //Bit of cosmetics - if user is removing location, says remove etc...
-    if (addorremove == true) {
-      adder = "add";
-    }
 
     return showDialog(
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text("Enter location to $adder:"),
+            title: Text("Enter location to remove:"),
             content: TextField(
-              controller:
-                  customController, //CustomController allows me to return Future<String> for this and so I can get the user's input
-            ),
+                controller: customController,
+                decoration: InputDecoration(labelText: "Room")),
             actions: <Widget>[
               MaterialButton(
                 //Creates submit button because it looks neater
@@ -120,7 +142,61 @@ class _SavedLocsState extends State<SavedLocs> {
                 child: Text('Submit'),
                 onPressed: () {
                   Navigator.of(context).pop(customController.text
-                      .toString()); //Pop! The user's input is taken and relayed to where the function was called from
+                      .toString()); //Pop! The user's inputs are taken and relayed (in a list<string>) to where the function was called from
+                },
+              )
+            ],
+          );
+        });
+  }
+
+  Future<List<String>> createPopupBox2(
+      BuildContext context,
+      bool addorremove,
+      bool
+          name) //Creates popup box which allows user to enter the name of the location
+  {
+    TextEditingController customController = TextEditingController();
+    TextEditingController customController2 = TextEditingController();
+    List<String> lstr = new List<String>();
+
+    String adder =
+        "remove"; //Bit of cosmetics - if user is removing location, says remove etc...
+    if (addorremove == true) {
+      adder = "add";
+    }
+
+    String text2 = "location";
+    if (name) {
+      text2 = "description";
+    }
+
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Enter $text2 to $adder:"),
+            content: SingleChildScrollView(
+                child: ListBody(children: <Widget>[
+              TextField(
+                controller: customController,
+                decoration: InputDecoration(labelText: "Room"),
+              ),
+              TextField(
+                controller: customController2,
+                decoration: InputDecoration(labelText: "Description"),
+              )
+            ])),
+            actions: <Widget>[
+              MaterialButton(
+                //Creates submit button because it looks neater
+                elevation: 5.0,
+                child: Text('Submit'),
+                onPressed: () {
+                  lstr.add(customController.text.toString());
+                  lstr.add(customController2.text.toString());
+                  Navigator.of(context).pop(
+                      lstr); //Pop! The user's inputs are taken and relayed (in a list<string>) to where the function was called from
                 },
               )
             ],
