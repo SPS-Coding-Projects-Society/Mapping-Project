@@ -94,46 +94,46 @@ class SummaryViewState extends State<SummaryView> {
           Positioned(
             // Picker to choose floor (It will show up when zoomed)
             top: 15,
-            left: 15,
+            left: MediaQuery.of(context).size.width / 27.4285714,
+            right: MediaQuery.of(context).size.width / 27.4285714,
             child: Container(
-              height: 5 * (MediaQuery.of(context).size.height / 28.1904762),
-              width: MediaQuery.of(context).size.width / 10.2857143,
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-                border: Border.all(
-                    color: Theme.of(context).buttonColor, width: 1.0),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: CupertinoPicker(
-                onSelectedItemChanged: (value) {
-                  setState(() {
-                    floor = value;
-                  });
-                },
-                itemExtent: MediaQuery.of(context).size.height / 28.1904762,
-                children: <Widget>[
-                  Center(child: Text("W")),
-                  Center(child: Text("1-G")),
-                  Center(child: Text("1-1")),
-                  Center(child: Text("1-2")),
-                  Center(child: Text("2-G")),
-                  Center(child: Text("2-1")),
-                  Center(child: Text("2-2")),
-                  Center(child: Text("3-G")),
-                  Center(child: Text("3-1")),
-                  Center(child: Text("3-2")),
-                  Center(child: Text("3-3")),
-                  Center(child: Text("4-1")),
-                  Center(child: Text("4-2")),
-                  Center(child: Text("5-1")),
-                  Center(child: Text("5-2")),
-                  Center(child: Text("6-G")),
-                  Center(child: Text("6-1")),
-                  Center(child: Text("6-2")),
-                  Center(child: Text("6-3")),
-                ],
-              ),
-            ),
+                height: 5 * (MediaQuery.of(context).size.height / 28.1904762),
+                width: MediaQuery.of(context).size.width / 10.2857143,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColor,
+                  border: Border.all(
+                      color: Theme.of(context).buttonColor, width: 1.0),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: CupertinoPicker(
+                  onSelectedItemChanged: (value) {
+                    setState(() {
+                      floor = value;
+                    });
+                  },
+                  itemExtent: MediaQuery.of(context).size.height / 28.1904762,
+                  children: <Widget>[
+                    Center(child: Text("Whole School")),
+                    Center(child: Text("GTB1 Ground Floor")),
+                    Center(child: Text("GTB1 First Floor")),
+                    Center(child: Text("GTB1 Second Floor")),
+                    Center(child: Text("GTB2 Ground Floor")),
+                    Center(child: Text("GTB2 First Floor")),
+                    Center(child: Text("GTB2 Second Floor")),
+                    Center(child: Text("Old Science & Milton Ground Floor")),
+                    Center(child: Text("Old Science & Milton First Floor")),
+                    Center(child: Text("Old Science & Milton Second Floor")),
+                    Center(child: Text("Old Science & Milton Third Floor")),
+                    Center(child: Text("Music School Ground Floor")),
+                    Center(child: Text("Music School First Floor")),
+                    Center(child: Text("Drama Block Ground Floor")),
+                    Center(child: Text("Drama Block First Floor")),
+                    Center(child: Text("New Science Ground Floor")),
+                    Center(child: Text("New Science First Floor")),
+                    Center(child: Text("New Science Second Floor")),
+                    Center(child: Text("New Science Third Floor")),
+                  ],
+                )),
           ),
           Align(
             alignment: Alignment.bottomCenter,
