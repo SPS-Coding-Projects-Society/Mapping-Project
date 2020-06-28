@@ -37,6 +37,28 @@ class _MyHomePageState extends State<MyHomePage>
   ];
   //var _moved = false;
 
+  var names = <Widget>[
+    Center(child: Text("Whole School")),
+    Center(child: Text("GTB1 Ground Floor")),
+    Center(child: Text("GTB1 First Floor")),
+    Center(child: Text("GTB1 Second Floor")),
+    Center(child: Text("GTB2 Ground Floor")),
+    Center(child: Text("GTB2 First Floor")),
+    Center(child: Text("GTB2 Second Floor")),
+    Center(child: Text("Old Science & Milton Ground Floor")),
+    Center(child: Text("Old Science & Milton First Floor")),
+    Center(child: Text("Old Science & Milton Second Floor")),
+    Center(child: Text("Old Science & Milton Third Floor")),
+    Center(child: Text("Music School Ground Floor")),
+    Center(child: Text("Music School First Floor")),
+    Center(child: Text("Drama Block Ground Floor")),
+    Center(child: Text("Drama Block First Floor")),
+    Center(child: Text("New Science Ground Floor")),
+    Center(child: Text("New Science First Floor")),
+    Center(child: Text("New Science Second Floor")),
+    Center(child: Text("New Science Third Floor")),
+  ];
+
   int floor = 0;
 
   AnimationController
@@ -137,15 +159,15 @@ class _MyHomePageState extends State<MyHomePage>
             left: MediaQuery.of(context).size.width / 27.4285714,
             right: MediaQuery.of(context).size.width / 27.4285714,
             child: Container(
-                height: 5 * (MediaQuery.of(context).size.height / 28.1904762),
-                width: MediaQuery.of(context).size.width / 10.2857143,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
-                  border: Border.all(
-                      color: Theme.of(context).buttonColor, width: 1.0),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: CupertinoPicker(
+              //height: 5 * (MediaQuery.of(context).size.height / 28.1904762),
+              width: MediaQuery.of(context).size.width / 10.2857143,
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                border: Border.all(
+                    color: Theme.of(context).buttonColor, width: 1.0),
+                borderRadius: BorderRadius.circular(24),
+              ),
+              /*child: CupertinoPicker(
                   onSelectedItemChanged: (value) {
                     setState(() {
                       floor = value;
@@ -173,7 +195,36 @@ class _MyHomePageState extends State<MyHomePage>
                     Center(child: Text("New Science Second Floor")),
                     Center(child: Text("New Science Third Floor")),
                   ],
-                )),
+                )*/
+              child: Slider(
+                value: (floor + 1).toDouble(),
+                min: 1,
+                max: 19,
+                divisions: 19,
+                onChanged: (value) {
+                  setState(() {
+                    floor = value.toInt() - 1;
+                  });
+                },
+              ),
+            ),
+          ),
+          Positioned(
+            // Picker to choose floor (It will show up when zoomed)
+            top: 100 + 3 * (MediaQuery.of(context).size.height / 28.1904762),
+            left: MediaQuery.of(context).size.width / 27.4285714,
+            right: MediaQuery.of(context).size.width / 27.4285714,
+            child: Container(
+              height: (MediaQuery.of(context).size.height / 28.1904762),
+              width: MediaQuery.of(context).size.width / 10.2857143,
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                border: Border.all(
+                    color: Theme.of(context).buttonColor, width: 1.0),
+                borderRadius: BorderRadius.circular(24),
+              ),
+              child: names[floor],
+            ),
           ),
           Positioned(
             // Sliding up pannel for time table
