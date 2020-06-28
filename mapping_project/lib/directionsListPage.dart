@@ -15,12 +15,13 @@ class DirectionsListViewState extends State<DirectionsListView> {
 
     return Scaffold(
       appBar: CustomAppBar.create(context, "Directions List"),
+      backgroundColor: Theme.of(context).backgroundColor,
       body: ListView.separated(
         padding: const EdgeInsets.all(8),
         itemCount: entries.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            height: 50,
+            height: MediaQuery.of(context).size.height / 16.9142857,
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -29,7 +30,8 @@ class DirectionsListViewState extends State<DirectionsListView> {
                 ]),
           );
         },
-        separatorBuilder: (BuildContext context, int index) => const Divider(),
+        separatorBuilder: (BuildContext context, int index) =>
+            Divider(color: Theme.of(context).dividerColor),
       ),
     );
   }

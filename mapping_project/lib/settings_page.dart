@@ -1,44 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:dynamic_theme/dynamic_theme.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'custom_app_bar.dart';
+import 'themes.dart';
 
-/*// #docregion SettingsPage
-class SettingsPage extends StatelessWidget {
-  // #docregion build
-  @override
-  Widget build(BuildContext context) {
-    return new DynamicTheme(
-      defaultBrightness: Brightness.light,
-      data: (brightness) => new ThemeData(
-        primaryColor: Colors.white,
-        brightness: brightness,
-      ),
-      themedWidgetBuilder: (context, theme) {
-        return new MaterialApp(
-          title: 'Settings',
-          theme: theme,
-          darkTheme: ThemeData.dark(),
-          home: Settings(),
-        );
-      },
-    );
-  }
-// #enddocregion build
-}
-// #enddocregion SettingsPage*/
+//user feedback
+//easter egg
 
 // #docregion RWS-var
 class SettingsState extends State<Settings> {
   final _biggerFont = const TextStyle(fontSize: 18.0);
   bool _metricImp =
       false; //the following three variables should be global variables -- to be implemented later
-  bool _darkMode = false;
+  var _darkTheme = true;
   String _accountName = "";
-  // #enddocregion RWS-var
-  // #docregion _buildSuggestions
+
   Widget _buildOptions() {
+    final themeNotifier = Provider.of<ThemeNotifier>(context);
+    _darkTheme = (themeNotifier.getTheme() == darkTheme);
     return ListView(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(8),
       children: <Widget>[
         Align(
             alignment: Alignment.centerLeft,
@@ -59,11 +40,11 @@ class SettingsState extends State<Settings> {
                   : "Metric", //Alternates between the two options
               style: _biggerFont),
           value: _metricImp,
-          activeColor: Colors.blueGrey,
-          activeTrackColor: Colors.blueGrey.shade200,
-          inactiveTrackColor: Colors.blueGrey.shade200,
-          inactiveThumbColor: Colors
-              .blueGrey, //changing the track colours so they look the same when on/off since this is not an on/off switch
+          activeColor: Theme.of(context).buttonColor,
+          activeTrackColor: Theme.of(context).accentColor,
+          inactiveTrackColor: Theme.of(context).accentColor,
+          inactiveThumbColor: Theme.of(context)
+              .buttonColor, //changing the track colours so they look the same when on/off since this is not an on/off switch
           onChanged: (bool newValue) {
             setState(() {
               _metricImp = newValue; //assigning new value
@@ -73,31 +54,30 @@ class SettingsState extends State<Settings> {
         SwitchListTile(
           //as above^
           title:
-              Text(_darkMode ? "Light Mode" : "Dark Mode", style: _biggerFont),
-          value: _darkMode,
-          activeColor: Colors.blueGrey,
-          activeTrackColor: Colors.blueGrey.shade200,
-          inactiveTrackColor: Colors.blueGrey.shade200,
-          inactiveThumbColor: Colors.blueGrey,
+              Text(_darkTheme ? "Light Mode" : "Dark Mode", style: _biggerFont),
+          value: _darkTheme,
+          activeColor: Theme.of(context).buttonColor,
+          activeTrackColor: Theme.of(context).accentColor,
+          inactiveTrackColor: Theme.of(context).accentColor,
+          inactiveThumbColor: Theme.of(context).buttonColor,
           onChanged: (bool newValue) {
             setState(() {
-              _darkMode = newValue;
+              _darkTheme = newValue;
             });
-            changeBrightness();
+            onThemeChanged(newValue, themeNotifier);
           },
         ),
       ],
     );
   }
 
-  void changeBrightness() {
-    DynamicTheme.of(context).setBrightness(
-        Theme.of(context).brightness == Brightness.dark
-            ? Brightness.light
-            : Brightness.dark);
-    //the widget called above that uses the 'Dynamic Theme' package to actively change the theme - rebuilding the whole thing every time you switch
+  void onThemeChanged(bool value, ThemeNotifier themeNotifier) async {
+    (value)
+        ? themeNotifier.setTheme(darkTheme)
+        : themeNotifier.setTheme(lightTheme);
+    var prefs = await SharedPreferences.getInstance();
+    prefs.setBool('darkMode', value);
   }
-  // #enddocregion _buildSuggestions
 
   // #docregion RWS-build
   @override
@@ -105,6 +85,7 @@ class SettingsState extends State<Settings> {
     return Scaffold(
       //scaffold just arranges the options nicely
       appBar: CustomAppBar.create(context, "Settings Page"),
+      backgroundColor: Theme.of(context).backgroundColor,
       body: _buildOptions(),
     );
   }
